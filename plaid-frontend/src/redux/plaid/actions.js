@@ -1,0 +1,35 @@
+const plaidActions = {
+  GET_ACCOUNT_LIST: 'GET_ACCOUNT_LIST',
+  GET_ACCOUNT_LIST_SUCCESS: 'GET_ACCOUNT_LIST_SUCCESS',
+  GET_ACCOUNT_LIST_FAILED: 'GET_ACCOUNT_LIST_FAILED',
+  GET_TRANSACTION_LIST: 'GET_TRANSACTION_LIST',
+  GET_TRANSACTION_LIST_SUCCESS: 'GET_TRANSACTION_LIST_SUCCESS',
+  GET_TRANSACTION_LIST_FAILED: 'GET_TRANSACTION_LIST_FAILED',
+  GET_BALANCE_LIST: 'GET_BALANCE_LIST',
+  GET_BALANCE_LIST_SUCCESS: 'GET_BALANCE_LIST_SUCCESS',
+  GET_BALANCE_LIST_FAILED: 'GET_BALANCE_LIST_FAILED',
+  GET_PUBLIC_TOKEN: 'GET_PUBLIC_TOKEN',
+  GET_PUBLIC_TOKEN_SUCCESS: 'GET_PUBLIC_TOKEN_SUCCESS',
+  GET_PUBLIC_TOKEN_FAILED: 'GET_PUBLIC_TOKEN_FAILED',
+  GET_ACCESS_TOKEN: 'GET_ACCESS_TOKEN',
+  GET_ACCESS_TOKEN_SUCCESS: 'GET_ACCESS_TOKEN_SUCCESS',
+  GET_ACCESS_TOKEN_FAILED: 'GET_ACCESS_TOKEN_FAILED',
+  
+  getAccountList: data => ({type: plaidActions.GET_ACCOUNT_LIST, data}),
+  getAccountListSuccess: data => ({type: plaidActions.GET_ACCOUNT_LIST_SUCCESS, data}),
+  getAccountListFailed: () => ({type: plaidActions.GET_ACCOUNT_LIST_FAILED}),
+  getTransactionList: data => ({type: plaidActions.GET_TRANSACTION_LIST, data}),
+  getTransactionListSuccess: data => ({type: plaidActions.GET_TRANSACTION_LIST_SUCCESS, data}),
+  getTransactionListFailed: () => ({type: plaidActions.GET_TRANSACTION_LIST_FAILED}),
+  getBalanceList: () => ({type: plaidActions.GET_BALANCE_LIST}),
+  getBalanceListSuccess: data => ({type: plaidActions.GET_BALANCE_LIST_SUCCESS, data}),
+  getBalanceListFailed: () => ({type: plaidActions.GET_BALANCE_LIST_FAILED}),
+  getPlaidPublicToken: () => ({type: plaidActions.GET_PUBLIC_TOKEN}),
+  getPlaidPublicTokenSuccess: data => ({type: plaidActions.GET_PUBLIC_TOKEN_SUCCESS, data}),
+  getPlaidPublicTokenFailed: () => ({type: plaidActions.GET_PUBLIC_TOKEN_FAILED}),
+  getPlaidAccessToken: data => ({type: plaidActions.GET_ACCESS_TOKEN, data}),
+  getPlaidAccessTokenSuccess: data => ({type: plaidActions.GET_ACCESS_TOKEN_SUCCESS, data}),
+  getPlaidAccessTokenFailed: () => ({type: plaidActions.GET_ACCESS_TOKEN_FAILED})
+};
+
+export default plaidActions;
