@@ -27,7 +27,9 @@ import {DemoWrapper} from "../../../components/utility/papersheet";
 import Loader from "../../../components/utility/Loader";
 import SimpleModal from './simpleModal';
 import {CSVLink} from "react-csv";
+import Cookies from "universal-cookie";
 
+const cookies = new Cookies();
 const { getAccountList } = plaidActions;
 const styles = theme => ({
   root: {
@@ -57,12 +59,17 @@ class Accounts extends Component {
   };
   
   componentDidMount() {
-    this.props.plaidAccessToken && this.props.getAccountList(this.props.plaidAccessToken.access_token);
+    const { isAuthenticating, getAccountList, getPlaidPublicToken } = this.props;
+    const accessToken = cookies.get('accessToken');
+    accessToken && getAccountList(accessToken);
+    !accessToken && !isAuthenticating && getPlaidPublicToken();
   }
   
   componentWillReceiveProps(nextProps) {
-    if (!nextProps.plaidAccessToken && nextProps.plaidAccessToken.access_token !== this.props.plaidAccessToken.access_token) {
-      this.props.getAccountList(nextProps.plaidAccessToken.access_token);
+    const { getAccountList } = this.props;
+    const accessToken = cookies.get('accessToken');
+    if (nextProps.plaidAccessToken !== this.props.plaidAccessToken) {
+      getAccountList(accessToken);
     }
   }
 
@@ -96,25 +103,6 @@ class Accounts extends Component {
       return;
     }
     this.setState({selected: []});
-  };
-
-  handleCheck = (event, id) => {
-    const {selected} = this.state;
-    const selectedIndex = selected.indexOf(id);
-    let newSelected = [];
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, id);
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1));
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1));
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(
-        selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1)
-      );
-    }
-    this.setState({selected: newSelected});
   };
 
   render() {
@@ -226,7 +214,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     dispatch,
     ...bindActionCreators({
-      getAccountList: getAccountList
+      getAccountList: getAccountList,
+      getPlaidPublicToken: plaidActions.getPlaidPublicToken
     }, dispatch)
   }
 };

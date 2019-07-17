@@ -1,13 +1,17 @@
+import Cookies from 'universal-cookie';
+import notification from "../../components/notification";
 import actions from './actions';
 import {all, takeEvery, put, call} from 'redux-saga/effects';
 import {postApi} from "../api";
 import {plaidPublicKey} from "../constants";
+const cookies = new Cookies();
 
 export function* getAccountList(data) {
   let res = yield call(postApi, {url: 'plaid/getAccountList', data: data});
   if (res && res.status) {
     yield put(actions.getAccountListSuccess(res.data.accounts));
   } else {
+    console.log(res);
     yield put(actions.getAccountListFailed());
   }
 }
@@ -33,7 +37,11 @@ export function* getBalanceList(data) {
 export function* getAccessToken(data) {
   let res = yield call(postApi, {url: 'plaid/getPlaidAccessToken', data: data});
   if (res && res.status) {
-    yield put(actions.getPlaidAccessTokenSuccess(res.data));
+    let now = new Date();
+    now.setMinutes(now.getMinutes() + 30);
+    cookies.set('accessToken', res.data, {path: '/', expires: now});
+    console.log(res.data);
+    yield put(actions.getPlaidAccessTokenSuccess(res.data.access_token));
   } else {
     yield put(actions.getPlaidAccessTokenFailed());
   }
@@ -54,14 +62,23 @@ export function* getPublicToken() {
         resolve(public_token);
       },
       onLoad: () => {
-        if (!localStorage.getItem('accessToken')) {
-          return;
-        }
         window.plaidHandler.open();
-      }
+      },
+      onExit: function(err, metadata) {
+        if (err != null) {
+          notification('error', err.error_message);
+        } else {
+          notification('error', 'Not connected to the bank');
+        }
+        resolve(false);
+      },
     });
   });
-  yield put(actions.getPlaidPublicTokenSuccess(publicToken));
+  if (publicToken) {
+    yield put(actions.getPlaidPublicTokenSuccess(publicToken));
+  } else {
+    yield put(actions.getPlaidPublicTokenFailed());
+  }
 }
 
 export default function* rootSaga() {

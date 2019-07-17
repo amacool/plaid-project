@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { createMuiTheme } from '@material-ui/core/styles';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { Link } from 'react-router-dom';
-import IntlMessages from '../../components/utility/intlMessages';
 import TopbarDropdownWrapper from './topbarDropdown.style';
 import {
   IconButtons,
@@ -14,7 +13,6 @@ import {
   Icon,
 } from './topbarDropdown.style';
 import authAction from '../../redux/auth/actions';
-// import Image from '../../images/user.jpg';
 
 const { logout } = authAction;
 
@@ -47,14 +45,15 @@ class TopbarUser extends Component {
       anchorEl: findDOMNode(this.button),
     });
   };
+  handleDisconnect = () => {
+    this.props.logout();
+    this.setState({visible: false});
+  };
 
   render() {
     const content = (
       <TopbarDropdown>
         <UserInformation>
-          <div className="userImage">
-          
-          </div>
           <div className="userDetails">
             <h4>{localStorage.getItem('admin_email')}</h4>
             <p>{localStorage.getItem('admin_profile')}</p>
@@ -62,9 +61,9 @@ class TopbarUser extends Component {
         </UserInformation>
 
         <SettingsList>
-          <Link to="/" onClick={this.props.logout} className="dropdownLink">
+          <Link to="/" onClick={() => this.handleDisconnect()} className="dropdownLink">
             <Icon>input</Icon>
-            <IntlMessages id="topbar.logout" />
+            <p>Reconnect</p>
           </Link>
         </SettingsList>
       </TopbarDropdown>

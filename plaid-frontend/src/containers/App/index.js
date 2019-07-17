@@ -17,7 +17,9 @@ import Main, { Root, AppFrame } from './style';
 import './global.css';
 import Loader from "../../components/utility/Loader";
 import {DemoWrapper} from "../../components/utility/papersheet";
+import Cookies from "universal-cookie";
 
+const cookies = new Cookies();
 const { logout } = authAction;
 const { toggleAll } = appActions;
 const { switchActivation } = themeActions;
@@ -25,15 +27,16 @@ const { getPlaidAccessToken, getPlaidPublicToken } = plaidActions;
 
 class App extends Component {
 	componentDidMount() {
-		this.props.getPlaidPublicToken();
+    const accessToken = cookies.get('accessToken');
+    !accessToken && this.props.getPlaidPublicToken();
 	}
 	
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.plaidPublicToken && this.props.plaidPublicToken !== nextProps.plaidPublicToken) {
-			this.props.getPlaidAccessToken(nextProps.plaidPublicToken);
-		} else if (this.props.plaidAccessToken !== nextProps.plaidAccessToken) {
-			this.props.history.push('/dashboard/accounts');
-		}
+    if (nextProps.plaidPublicToken && this.props.plaidPublicToken !== nextProps.plaidPublicToken) {
+      this.props.getPlaidAccessToken(nextProps.plaidPublicToken);
+    } else if (this.props.plaidAccessToken !== nextProps.plaidAccessToken) {
+      this.props.history.push('/dashboard/accounts');
+    }
 	}
 	
 	render() {
