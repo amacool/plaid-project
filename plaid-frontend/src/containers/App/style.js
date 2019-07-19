@@ -54,6 +54,11 @@ const Main = styled.div`
     width: calc(100% - 260px);
     margin-right: ${props => (props['data-rtl'] === 'rtl' ? 260 : 0)}px;
     margin-left: ${props => (props['data-rtl'] === 'rtl' ? 0 : 260)}px;
+    text-align: center;
+    
+    h1.not-connected {
+      margin-top: 80px;
+    }
 
     .GridView {
       @media only screen and (max-width: 1140px) {

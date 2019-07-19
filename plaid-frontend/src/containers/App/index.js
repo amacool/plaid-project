@@ -86,7 +86,15 @@ class App extends Component {
 							<DemoWrapper>
 								<Loader/>
 							</DemoWrapper>}
-							<MUIPProvider>
+							{isPlaidAuthenticating &&
+              <h1 className='not-connected'>
+                Connecting to the bank...
+              </h1>}
+							{!cookies.get('accessToken') && !isPlaidAuthenticating &&
+							<h1 className='not-connected'>
+								Not connected to the bank
+							</h1>}
+              <MUIPProvider>
 								<AppRouter
 									style={{ height: scrollHeight, overflowY: 'auto', overflowX: 'unset' }}
 									url={url}

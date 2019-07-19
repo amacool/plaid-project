@@ -101,7 +101,7 @@ class Transactions extends Component {
           </DemoWrapper>
         }
         <Row>
-          <FullColumn>
+          {cookies.get('accessToken') && <FullColumn>
             <CardWrapper title="Transactions">
               {!transactionList || transactionList.length === 0 ? (
                 <HelperText text=""/>
@@ -159,7 +159,7 @@ class Transactions extends Component {
                 </div>
               )}
             </CardWrapper>
-          </FullColumn>
+          </FullColumn>}
         </Row>
 
       </LayoutWrapper>
