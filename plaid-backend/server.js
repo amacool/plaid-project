@@ -15,10 +15,10 @@ app
 	.use(cors());
 
 app.use((req, res, next) => {
-	if (!isConnectionEstablished) {
-		res.status(200).json({status: false, error: 'connecting to db...'});
-		return;
-	}
+	// if (!isConnectionEstablished) {
+	// 	res.status(200).json({status: false, error: 'connecting to db...'});
+	// 	return;
+	// }
   console.log('Time:', Date.now());
   next()
 });
@@ -31,14 +31,15 @@ app.use(function (err, req, res, next) {
 });
 
 app.listen(port, () => {
-  !isConnectionEstablished && establishConnection().then(
-    () => {
-      isConnectionEstablished = true;
-      console.log(`started on port ${port}`);
-      console.log("Database connection established!");
-    },
-		(err) => {
-      console.log("Error	 connecting Database instance due to: ", err);
-    }
-	);
+  console.log(`started on port ${port}`);
+  // !isConnectionEstablished && establishConnection().then(
+  //   () => {
+  //     isConnectionEstablished = true;
+  //     console.log(`started on port ${port}`);
+  //     console.log("Database connection established!");
+  //   },
+	// 	(err) => {
+  //     console.log("Error	 connecting Database instance due to: ", err);
+  //   }
+	// );
 });

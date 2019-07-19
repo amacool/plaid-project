@@ -29,10 +29,12 @@ class App extends Component {
 	componentDidMount() {
     const accessToken = cookies.get('accessToken');
     !accessToken && this.props.getPlaidPublicToken();
+    accessToken && this.props.location.pathname === '/dashboard' && this.props.history.push('/dashboard/accounts');
 	}
 	
 	componentWillReceiveProps(nextProps) {
     if (nextProps.plaidPublicToken && this.props.plaidPublicToken !== nextProps.plaidPublicToken) {
+    	console.log('getting access token');
       this.props.getPlaidAccessToken(nextProps.plaidPublicToken);
     } else if (this.props.plaidAccessToken !== nextProps.plaidAccessToken) {
       this.props.history.push('/dashboard/accounts');

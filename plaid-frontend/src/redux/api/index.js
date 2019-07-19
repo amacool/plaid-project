@@ -22,7 +22,12 @@ const postApi = async ({url, data}) => {
   return await axios.post(urlPrefix + url, data)
     .then(res => {
       if (res.data && !res.data.status) {
-        res.data.error && notification('error', res.data.error);
+        console.log(res.data.error);
+        if (typeof res.data.error === 'object' && res.data.error.error_message) {
+          res.data.error && notification('error', res.data.error.error_message);
+        } else if (res.data.error) {
+          notification('error', res.data.error);
+        }
       }
       return res.data;
     })

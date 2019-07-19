@@ -7,7 +7,7 @@ import {plaidPublicKey} from "../constants";
 const cookies = new Cookies();
 
 export function* getAccountList(data) {
-  let res = yield call(postApi, {url: 'plaid/getAccountList', data: data});
+  let res = yield call(postApi, {url: 'plaid/getAccounts', data: data});
   if (res && res.status) {
     yield put(actions.getAccountListSuccess(res.data.accounts));
   } else {
@@ -17,7 +17,7 @@ export function* getAccountList(data) {
 }
 
 export function* getTransactionList(data) {
-  let res = yield call(postApi, {url: 'plaid/getTransactionList', data: data});
+  let res = yield call(postApi, {url: 'plaid/getTransactions', data: data});
   if (res && res.status) {
     yield put(actions.getTransactionListSuccess(res.data.transactions));
   } else {
@@ -26,7 +26,7 @@ export function* getTransactionList(data) {
 }
 
 export function* getBalanceList(data) {
-  let res = yield call(postApi, {url: 'plaid/getBalanceList', data: data});
+  let res = yield call(postApi, {url: 'plaid/getBalances', data: data});
   if (res && res.status) {
     yield put(actions.getBalanceListSuccess(res.data));
   } else {
@@ -39,8 +39,7 @@ export function* getAccessToken(data) {
   if (res && res.status) {
     let now = new Date();
     now.setMinutes(now.getMinutes() + 30);
-    cookies.set('accessToken', res.data, {path: '/', expires: now});
-    console.log(res.data);
+    cookies.set('accessToken', res.data.access_token, {path: '/', expires: now});
     yield put(actions.getPlaidAccessTokenSuccess(res.data.access_token));
   } else {
     yield put(actions.getPlaidAccessTokenFailed());

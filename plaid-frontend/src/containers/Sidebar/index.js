@@ -96,6 +96,7 @@ class Sidebar extends Component {
       fixedNavbar,
       view,
     } = this.props;
+
     selectedTheme = customizedTheme;
     const scrollheight = height;
     const url = stripTrailingSlash(this.props.url);

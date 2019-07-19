@@ -151,7 +151,7 @@ class Transactions extends Component {
                       data={csvData}
                       filename={"my-file.csv"}
                       target="_blank"
-                      style={{float: 'right', color: 'red', marginTop: '20px'}}
+                      style={{float: 'right', color: '#f82462', marginTop: '20px'}}
                     >
                       Download
                     </CSVLink>

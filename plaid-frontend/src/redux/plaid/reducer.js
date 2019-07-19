@@ -7,7 +7,7 @@ const initState = {
   plaidPublicToken: null,
   plaidAccessToken: null,
   isLoading: false,
-  isAuthenticating: true,
+  isAuthenticating: false,
   pageNum: null,
   itemsPerPage: null,
   totalPage: null
