@@ -33,35 +33,35 @@ class accountDetail extends Component {
               {account.account_id}
             </BodyTypography>
 
-            <HeadingTypography type="headline" component="h2">
+            <HeadingTypography type="headline" component="p">
               Name
             </HeadingTypography>
             <BodyTypography type="body1" className="pos">
               {account.name}
             </BodyTypography>
 
-            <HeadingTypography type="headline" component="h2">
+            <HeadingTypography type="headline" component="p">
               Mask
             </HeadingTypography>
             <BodyTypography type="body1" className="pos">
               {account.mask}
             </BodyTypography>
 
-            <HeadingTypography type="headline" component="h2">
+            <HeadingTypography type="headline" component="p">
               Official Name
             </HeadingTypography>
             <BodyTypography type="body1" className="pos">
               {account.official_name}
             </BodyTypography>
 
-            <HeadingTypography type="headline" component="h2">
+            <HeadingTypography type="headline" component="p">
               Subtype
             </HeadingTypography>
             <BodyTypography type="body1" className="pos">
               {account.subtype}
             </BodyTypography>
 
-            <HeadingTypography type="headline" component="h2">
+            <HeadingTypography type="headline" component="p">
               Type
             </HeadingTypography>
             <BodyTypography type="body1" className="pos">
@@ -72,35 +72,35 @@ class accountDetail extends Component {
     
         <HalfColumn style={{maxWidth: '49%'}}>
           <Papersheet title="Account Balance" style={{ height: '89vh' }}>
-            <HeadingTypography type="headline" component="h2">
+            <HeadingTypography type="headline" component="p">
               Available
             </HeadingTypography>
             <BodyTypography type="body1" className="pos">
               {balance.available}
             </BodyTypography>
   
-            <HeadingTypography type="headline" component="h2">
+            <HeadingTypography type="headline" component="p">
               Name
             </HeadingTypography>
             <BodyTypography type="body1" className="pos">
               {balance.current}
             </BodyTypography>
   
-            <HeadingTypography type="headline" component="h2">
+            <HeadingTypography type="headline" component="p">
               Limit
             </HeadingTypography>
             <BodyTypography type="body1" className="pos">
               {balance.limit}
             </BodyTypography>
   
-            <HeadingTypography type="headline" component="h2">
+            <HeadingTypography type="headline" component="p">
               Currency
             </HeadingTypography>
             <BodyTypography type="body1" className="pos">
               {balance.iso_currency_code}
             </BodyTypography>
   
-            <HeadingTypography type="headline" component="h2">
+            <HeadingTypography type="headline" component="p">
               Unofficial Currency
             </HeadingTypography>
             <BodyTypography type="body1" className="pos">

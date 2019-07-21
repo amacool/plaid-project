@@ -1,7 +1,6 @@
 import axios from 'axios';
 import notification from "../../components/notification";
-
-const urlPrefix = "http://localhost:9000/";
+import {urlPrefix} from '../constants';
 
 // const axiosConfig = () => {
 //   let config = {

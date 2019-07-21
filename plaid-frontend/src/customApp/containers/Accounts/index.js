@@ -184,7 +184,7 @@ class Accounts extends Component {
                     {/*</UserPagination>*/}
                     <CSVLink
                       data={csvData}
-                      filename={"my-file.csv"}
+                      filename={"accounts.csv"}
                       target="_blank"
                       style={{float: 'right', color: '#f82462', marginTop: '20px'}}
                     >

@@ -149,7 +149,7 @@ class Transactions extends Component {
                     {/*</UserPagination>*/}
                     <CSVLink
                       data={csvData}
-                      filename={"my-file.csv"}
+                      filename={"transactions.csv"}
                       target="_blank"
                       style={{float: 'right', color: '#f82462', marginTop: '20px'}}
                     >
