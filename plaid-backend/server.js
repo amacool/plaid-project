@@ -7,6 +7,7 @@ const { port } = Config;
 const app = express();
 const { establishConnection } = require('./app/db');
 const loadRoutes = require('./app/routes');
+const http = require("http");
 let isConnectionEstablished = false;
 
 app
@@ -30,20 +31,6 @@ app.use(function (err, req, res, next) {
   res.status(500).send('Something broke!')
 });
 
-app.listen(port, () => {
-  console.log(`started on port ${port}`);
-  // !isConnectionEstablished && establishConnection().then(
-  //   () => {
-  //     isConnectionEstablished = true;
-  //     console.log(`started on port ${port}`);
-  //     console.log("Database connection established!");
-  //   },
-	// 	(err) => {
-  //     console.log("Error	 connecting Database instance due to: ", err);
-  //   }
-	// );
-});
-
 app.use(express.static(path.resolve(__dirname, "../plaid-frontend/", "build")));
 app.use("/static", express.static(path.resolve(__dirname, "..", "static")));
 
@@ -54,4 +41,9 @@ app.get('/*', (req, res) => {
         res.status(500).send(err)
       }
     });
+});
+
+const server = http.createServer(app);
+server.listen(port, () => {
+  console.log(`App listening on port ${port}!`);
 });
