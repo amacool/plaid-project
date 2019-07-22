@@ -4,10 +4,10 @@ import cors from 'cors';
 import { authenticate, authError } from './app/middleware';
 import Config from './config';
 const { port } = Config;
+const fs = require('fs');
 const app = express();
 const { establishConnection } = require('./app/db');
 const loadRoutes = require('./app/routes');
-const http = require("http");
 let isConnectionEstablished = false;
 
 app
@@ -31,19 +31,22 @@ app.use(function (err, req, res, next) {
   res.status(500).send('Something broke!')
 });
 
-app.use(express.static(path.resolve(__dirname, "../plaid-frontend/", "build")));
-app.use("/static", express.static(path.resolve(__dirname, "..", "static")));
+// Certificate
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.fundingtree.io/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/api.fundingtree.io/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/api.fundingtree.io/chain.pem', 'utf8');
 
+const credentials = {
+  key: privateKey,
+  cert: certificate,
+  ca: ca
+};
 
-app.get('/*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../plaid-frontend/', 'build', 'index.html'), function(err) {
-      if (err) {
-        res.status(500).send(err)
-      }
-    });
-});
+const http = require('http');
+const https = require('https');
 
-const server = http.createServer(app);
-server.listen(port, () => {
-  console.log(`App listening on port ${port}!`);
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer(credentials, app);
+httpsServer.listen(443, () => {
+  console.log(`App listening on port ${443}!`);
 });
