@@ -3,14 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e30ef663-5bf4-4e94-a72f-cdd5cc372cc2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../plaid-backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-backend/app/controllers/plaid.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-backend/app/controllers/plaid.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-backend/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-backend/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plaid-backend/app/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-backend/app/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plaid-backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/customApp/containers/Accounts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/customApp/containers/Accounts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/utility.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/utility.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/api/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/plaid/saga.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/plaid/saga.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -217,7 +213,7 @@
         <entry file="file://$PROJECT_DIR$/src/customApp/containers/Accounts/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
-              <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+              <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -226,7 +222,7 @@
         <entry file="file://$PROJECT_DIR$/src/containers/App/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="324">
-              <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+              <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -251,7 +247,7 @@
         <entry file="file://$PROJECT_DIR$/src/customApp/containers/Transactions/config.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
-              <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -260,7 +256,7 @@
         <entry file="file://$PROJECT_DIR$/src/redux/plaid/saga.js">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret line="19" column="55" lean-forward="true" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
+              <caret line="19" column="55" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -272,7 +268,7 @@
         <entry file="file://$PROJECT_DIR$/src/redux/api/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
-              <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+              <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -281,7 +277,7 @@
         <entry file="file://$PROJECT_DIR$/src/redux/auth/saga.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="108">
-              <caret line="4" column="57" lean-forward="true" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
+              <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
               <folding>
                 <element signature="e#0#63#0" expanded="true" />
               </folding>
@@ -293,7 +289,7 @@
         <entry file="file://$PROJECT_DIR$/src/helpers/utility.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="108">
-              <caret line="4" column="47" lean-forward="true" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
+              <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -301,8 +297,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/redux/constants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="2" column="50" lean-forward="true" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
+            <state relative-caret-position="81">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -547,7 +543,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../plaid-backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -636,7 +632,7 @@
       <workItem from="1564006711439" duration="1340000" />
       <workItem from="1564033730634" duration="1011000" />
       <workItem from="1564038918375" duration="3384000" />
-      <workItem from="1564058515073" duration="3955000" />
+      <workItem from="1564058515073" duration="4429000" />
     </task>
     <task id="LOCAL-00001" summary="CM Admin">
       <created>1561059064380</created>
@@ -775,7 +771,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="215855000" />
+    <option name="totallyTimeSpent" value="216329000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1078,14 +1074,14 @@
     <entry file="file://$PROJECT_DIR$/src/customApp/containers/Accounts/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/App/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
-          <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -1106,14 +1102,14 @@
     <entry file="file://$PROJECT_DIR$/src/customApp/containers/Transactions/config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
-          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/plaid/saga.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret line="19" column="55" lean-forward="true" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
+          <caret line="19" column="55" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -1123,14 +1119,14 @@
     <entry file="file://$PROJECT_DIR$/src/redux/api/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/auth/saga.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="4" column="57" lean-forward="true" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
+          <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
           <folding>
             <element signature="e#0#63#0" expanded="true" />
           </folding>
@@ -1140,14 +1136,14 @@
     <entry file="file://$PROJECT_DIR$/src/helpers/utility.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="4" column="47" lean-forward="true" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
+          <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/constants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="50" lean-forward="true" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
+        <state relative-caret-position="81">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>

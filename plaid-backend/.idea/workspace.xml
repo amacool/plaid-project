@@ -3,16 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="cadc1ca0-6ed7-411c-932e-d9a0bdd10ba3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/plaid.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/plaid.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plaid-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/containers/App/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/containers/App/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/customApp/containers/Accounts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/customApp/containers/Accounts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/customApp/containers/Transactions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/customApp/containers/Transactions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/helpers/utility.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/helpers/utility.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/redux/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/redux/api/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/redux/plaid/saga.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/redux/plaid/saga.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plaid-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/redux/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/redux/constants.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -322,12 +317,12 @@
       <workItem from="1564006684389" duration="1205000" />
       <workItem from="1564033749374" duration="1475000" />
       <workItem from="1564038814243" duration="6072000" />
-      <workItem from="1564058631096" duration="4253000" />
+      <workItem from="1564058631096" duration="4727000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102658000" />
+    <option name="totallyTimeSpent" value="103132000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

@@ -4,6 +4,7 @@ import cors from 'cors';
 import { authenticate, authError } from './app/middleware';
 import Config from './config';
 const { port } = Config;
+const fs = require('fs');
 const app = express();
 const { establishConnection } = require('./app/db');
 const loadRoutes = require('./app/routes');
@@ -30,16 +31,22 @@ app.use(function (err, req, res, next) {
   res.status(500).send('Something broke!')
 });
 
-app.listen(port, () => {
-  console.log(`started on port ${port}`);
-  // !isConnectionEstablished && establishConnection().then(
-  //   () => {
-  //     isConnectionEstablished = true;
-  //     console.log(`started on port ${port}`);
-  //     console.log("Database connection established!");
-  //   },
-	// 	(err) => {
-  //     console.log("Error	 connecting Database instance due to: ", err);
-  //   }
-	// );
+// Certificate
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.fundingtree.io/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/api.fundingtree.io/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/api.fundingtree.io/chain.pem', 'utf8');
+
+const credentials = {
+  key: privateKey,
+  cert: certificate,
+  ca: ca
+};
+
+const http = require('http');
+const https = require('https');
+
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer(credentials, app);
+httpsServer.listen(443, () => {
+  console.log(`App listening on port ${443}!`);
 });
