@@ -2,21 +2,6 @@ import axios from 'axios';
 import notification from "../../components/notification";
 import {urlPrefix} from '../constants';
 
-// const axiosConfig = () => {
-//   let config = {
-//     'headers': {
-//       'Content-Type': 'application/json'
-//     }
-//   };
-//   if (localStorage.accessToken) {
-//     config['headers']['accesstoken'] = localStorage.accessToken;
-//   }
-//   if (localStorage.idToken) {
-//     config['headers']['Authorization'] = localStorage.idToken;
-//   }
-//   return config;
-// };
-
 const postApi = async ({url, data}) => {
   return await axios.post(urlPrefix + url, data)
     .then(res => {

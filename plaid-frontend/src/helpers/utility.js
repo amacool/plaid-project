@@ -2,8 +2,7 @@ import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
 export function clearToken() {
-  cookies.remove('accessToken');
-  console.log(cookies.get('accessToken'));
+  cookies.remove('accessToken', { path: '/' });
   localStorage.removeItem('id_token');
 }
 

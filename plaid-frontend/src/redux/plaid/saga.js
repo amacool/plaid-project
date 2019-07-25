@@ -25,21 +25,16 @@ export function* getTransactionList(data) {
   }
 }
 
-export function* getBalanceList(data) {
-  let res = yield call(postApi, {url: 'plaid/getBalances', data: data});
-  if (res && res.status) {
-    yield put(actions.getBalanceListSuccess(res.data));
-  } else {
-    yield put(actions.getBalanceListFailed());
-  }
-}
-
 export function* getAccessToken(data) {
   let res = yield call(postApi, {url: 'plaid/getPlaidAccessToken', data: data});
   if (res && res.status) {
     let now = new Date();
-    now.setMinutes(now.getMinutes() + 30);
+    now.setMinutes(now.getMinutes() + 60);
     cookies.set('accessToken', res.data.access_token, {path: '/', expires: now});
+    if (res.data.transactions.transactions) {
+      yield put(actions.getTransactionListSuccess(res.data.transactions.transactions));
+    }
+    yield put(actions.getAccountListSuccess(res.data.accounts.accounts));
     yield put(actions.getPlaidAccessTokenSuccess(res.data.access_token));
   } else {
     yield put(actions.getPlaidAccessTokenFailed());
@@ -85,7 +80,6 @@ export default function* rootSaga() {
     yield takeEvery(actions.GET_PUBLIC_TOKEN, getPublicToken),
     yield takeEvery(actions.GET_ACCESS_TOKEN, getAccessToken),
     yield takeEvery(actions.GET_ACCOUNT_LIST, getAccountList),
-    yield takeEvery(actions.GET_BALANCE_LIST, getBalanceList),
     yield takeEvery(actions.GET_TRANSACTION_LIST, getTransactionList)
   ]);
 }

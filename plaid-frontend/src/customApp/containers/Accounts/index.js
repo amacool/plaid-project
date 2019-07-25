@@ -59,9 +59,9 @@ class Accounts extends Component {
   };
   
   componentDidMount() {
-    const { isAuthenticating, getAccountList, getPlaidPublicToken } = this.props;
+    const { isAuthenticating, getAccountList, getPlaidPublicToken, accountList } = this.props;
     const accessToken = cookies.get('accessToken');
-    accessToken && getAccountList(accessToken);
+    accessToken && accountList.length === 0 && getAccountList(accessToken);
     !accessToken && !isAuthenticating && getPlaidPublicToken();
   }
   

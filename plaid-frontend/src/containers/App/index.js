@@ -27,6 +27,10 @@ const { getPlaidAccessToken, getPlaidPublicToken } = plaidActions;
 
 class App extends Component {
 	componentDidMount() {
+    // let now = new Date();
+    // now.setMinutes(now.getMinutes() + 360);
+    // cookies.set('accessToken', 'access-production-1fe99ee8-e21c-42a0-8c83-7d3660d62283', {path: '/', expires: now});
+    
     const accessToken = cookies.get('accessToken');
     !accessToken && this.props.getPlaidPublicToken();
     accessToken && this.props.location.pathname === '/dashboard' && this.props.history.push('/dashboard/accounts');

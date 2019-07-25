@@ -54,17 +54,18 @@ class Transactions extends Component {
   };
   
   componentDidMount() {
-    const { isAuthenticating, getTransactionList, getPlaidPublicToken } = this.props;
+    const { isAuthenticating, getTransactionList, getPlaidPublicToken, transactionList } = this.props;
     const accessToken = cookies.get('accessToken');
-    accessToken && getTransactionList(accessToken);
+    accessToken && transactionList.length === 0 && getTransactionList(accessToken);
+    // accessToken && getTransactionList(accessToken);
     !accessToken && !isAuthenticating && getPlaidPublicToken();
   }
   
   componentWillReceiveProps(nextProps) {
-    const { getAccountList } = this.props;
+    const { getTransactionList } = this.props;
     const accessToken = cookies.get('accessToken');
     if (nextProps.plaidAccessToken !== this.props.plaidAccessToken) {
-      getAccountList(accessToken);
+      getTransactionList(accessToken);
     }
   }
 
