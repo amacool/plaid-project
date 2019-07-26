@@ -23,7 +23,7 @@ const cookies = new Cookies();
 const { logout } = authAction;
 const { toggleAll } = appActions;
 const { switchActivation } = themeActions;
-const { getPlaidAccessToken, getPlaidPublicToken, getAccountInfo } = plaidActions;
+const { getPlaidAccessToken, getPlaidPublicToken, getAccountInfo, getAccountInfo1 } = plaidActions;
 
 class App extends Component {
 	constructor(props) {
@@ -72,16 +72,20 @@ class App extends Component {
         this.props.getAccountInfo(accessToken);
 			}, this.interval);
 			
-    } else if (!nextProps.transactionList && !nextProps.isLoading) {
+    } else if (!nextProps.transactionList && !nextProps.isLoading && this.state.isAppLoading) {
       // not prepared yet
-      console.log('set 10 seconds timeout, waiting for plaid to be prepared');
-      if (this.timer) {
-        clearTimeout(this.timer);
-      }
-      this.timer = setTimeout(() => {
-      	this.interval += 5;
-        this.props.getAccountInfo(accessToken);
-      }, this.interval);
+      // console.log('set 10 seconds timeout, waiting for plaid to be prepared');
+      // if (this.timer) {
+      //   clearTimeout(this.timer);
+      // }
+      // this.timer = setTimeout(() => {
+      // 	this.interval += 5;
+      //   this.props.getAccountInfo(accessToken);
+      // }, this.interval);
+			
+			// first loading was failed, run thread
+      this.setState({isAppLoading: false});
+      this.props.getAccountInfo1(accessToken);
       
     } else if ((this.props.accountList !== nextProps.accountList || this.props.transactionList !== nextProps.transactionList) && nextProps.transactionList) {
 			// finally, app loading finishes here
@@ -188,7 +192,8 @@ const appConect = connect(
 		switchActivation,
     getPlaidAccessToken,
     getPlaidPublicToken,
-    getAccountInfo
+    getAccountInfo,
+    getAccountInfo1
 	}
 )(App);
 export default appConect;

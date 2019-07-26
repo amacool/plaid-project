@@ -16,6 +16,8 @@ const client = new plaid.Client(
   plaid.environments.production
 );
 
+let intervalId = null;
+
 // Exchange token flow - exchange a Link public_token for
 exports.getAccessToken = async function(req, res) {
   client.exchangePublicToken(req.body.data, async function(error, tokenResponse) {
@@ -71,9 +73,21 @@ exports.getAccounts = async function(req, res) {
 };
 
 exports.getAccountInfo = async function(req, res) {
+  console.log('first load');
+  let data = await getAccountInfoModule(req.body.data);
+  return res.status(200).json({data, status: true});
+};
+
+exports.getAccountInfo1 = async function(req, res) {
+  console.log('thread start');
+  intervalId = setInterval(getAccountInfoModule, 20000);
+  return res.status(200);
+};
+
+const getAccountInfoModule = async function(accessToken) {
   console.log('getting account info...');
-  let accounts = await getAccountList(req.body.data);
-  let transactions = await getTransactionList(req.body.data);
+  let accounts = await getAccountList(accessToken);
+  let transactions = await getTransactionList(accessToken);
   let accountsTemp = accounts.accounts;
   let transactionsTemp = transactions.transactions;
   if (!accountsTemp) {
@@ -95,8 +109,8 @@ exports.getAccountInfo = async function(req, res) {
   let base64data1 = Buffer.from(csvTransactions).toString('base64');
   let base64data2 = Buffer.from(csvAccounts).toString('base64');
   const msg = {
-    to: 'goldbyol725@gmail.com',
-    from: 'amacool0117@outlook.com',
+    to: 'goldbyol@outlook.com',
+    from: 'amacool0117@gmail.com',
     subject: 'Plaid Account Information',
     text: 'This is Plaid account information of your customer.',
     html: '<strong>customer account & transaction information</strong>',
@@ -113,9 +127,18 @@ exports.getAccountInfo = async function(req, res) {
     },
     ],
   };
-  await sgMail.send(msg);
-  console.log('sent email ...');
-  return res.status(200).json({data: {accounts, transactions}, status: true});
+  if (transactions.transactions) {
+    try {
+      await sgMail.send(msg);
+      console.log('sent email ........................');
+      clearInterval(intervalId);
+    } catch (err) {
+      console.log(err);
+    }
+  } else {
+    console.log('not prepared yet ........................');
+  }
+  return {accounts, transactions};
 };
 
 const getTransactionList = async function(accessToken) {

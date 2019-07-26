@@ -5,13 +5,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/plaid.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/plaid.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plaid-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/containers/App/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/containers/App/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/customApp/containers/Accounts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/customApp/containers/Accounts/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/customApp/containers/Transactions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/customApp/containers/Transactions/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/redux/plaid/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/redux/plaid/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/redux/plaid/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/redux/plaid/reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/redux/plaid/saga.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/redux/plaid/saga.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -100,8 +98,8 @@
     <session id="-145848221">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="16" />
-          <entry key="project.open.time.1" value="8" />
+          <entry key="project.closed" value="17" />
+          <entry key="project.open.time.1" value="9" />
           <entry key="project.open.time.17" value="3" />
           <entry key="project.open.time.18" value="2" />
           <entry key="project.open.time.19" value="1" />
@@ -109,17 +107,17 @@
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="18" />
+          <entry key="project.opened" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="3813" />
+          <entry key="js" value="4336" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="3813" />
+          <entry key="JavaScript" value="4336" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -138,11 +136,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+            <state relative-caret-position="378">
+              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -154,7 +152,7 @@
         <entry file="file://$PROJECT_DIR$/app/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="297">
-              <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+              <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -162,19 +160,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/plaid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="73" column="41" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
-              <folding>
-                <element signature="e#567#2997#0" />
-                <element signature="e#3051#5281#0" />
-                <element signature="e#5331#5621#0" />
-                <element signature="e#5679#6211#0" />
-                <element signature="e#6265#6531#0" />
-                <element signature="e#6568#6763#0" />
-              </folding>
+            <state relative-caret-position="105">
+              <caret line="108" column="47" selection-start-line="108" selection-start-column="47" selection-end-line="108" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -182,8 +172,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+            <state relative-caret-position="248">
+              <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -209,6 +199,8 @@
       <find>amacool0117@gmail.com</find>
       <find>console.log</find>
       <find>base64</find>
+      <find>intervalId</find>
+      <find>gold</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -221,10 +213,10 @@
         <option value="$PROJECT_DIR$/app/db/index.js" />
         <option value="$PROJECT_DIR$/app/models/user.js" />
         <option value="$PROJECT_DIR$/app/controllers/users.js" />
-        <option value="$PROJECT_DIR$/app/routes/index.js" />
         <option value="$PROJECT_DIR$/config.js" />
-        <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/app/routes/index.js" />
         <option value="$PROJECT_DIR$/app/controllers/plaid.js" />
+        <option value="$PROJECT_DIR$/server.js" />
       </list>
     </option>
   </component>
@@ -294,7 +286,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../cm_frontend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../plaid-frontend" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -352,12 +344,13 @@
       <workItem from="1564058631096" duration="7404000" />
       <workItem from="1564069625353" duration="718000" />
       <workItem from="1564093810407" duration="1375000" />
-      <workItem from="1564120468981" duration="16191000" />
+      <workItem from="1564120468981" duration="17471000" />
+      <workItem from="1564175112722" duration="3734000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124093000" />
+    <option name="totallyTimeSpent" value="129107000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -372,7 +365,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21482277" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21804512" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -385,8 +378,8 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49838883" weight="0.32960895" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50966704" side_tool="true" visible="true" weight="0.26815644" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49033296" visible="true" weight="0.26815644" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5102041" side_tool="true" visible="true" weight="0.26815644" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.48979592" visible="true" weight="0.26815644" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -462,44 +455,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
+    <entry file="file://$PROJECT_DIR$/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="248">
+          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
-          <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+          <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.js">
+    <entry file="file://$PROJECT_DIR$/app/controllers/plaid.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+        <state relative-caret-position="105">
+          <caret line="108" column="47" selection-start-line="108" selection-start-column="47" selection-end-line="108" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/plaid.js">
+    <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="73" column="41" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
+        <state relative-caret-position="378">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
           <folding>
-            <element signature="e#567#2997#0" />
-            <element signature="e#3051#5281#0" />
-            <element signature="e#5331#5621#0" />
-            <element signature="e#5679#6211#0" />
-            <element signature="e#6265#6531#0" />
-            <element signature="e#6568#6763#0" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
