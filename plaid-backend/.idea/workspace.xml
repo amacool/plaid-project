@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cadc1ca0-6ed7-411c-932e-d9a0bdd10ba3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/plaid.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/plaid.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plaid-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/containers/App/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/containers/App/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/customApp/containers/Accounts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/customApp/containers/Accounts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/customApp/containers/Transactions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/customApp/containers/Transactions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/redux/plaid/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/redux/plaid/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/redux/plaid/saga.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/redux/plaid/saga.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -112,12 +105,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="4336" />
+          <entry key="js" value="4381" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="4336" />
+          <entry key="JavaScript" value="4381" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -136,10 +129,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
+            <state relative-caret-position="540">
               <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
@@ -160,11 +153,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/plaid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="108" column="47" selection-start-line="108" selection-start-column="47" selection-end-line="108" selection-end-column="47" />
+            <state relative-caret-position="321">
+              <caret line="120" column="30" selection-start-line="120" selection-start-column="30" selection-end-line="120" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -172,8 +165,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+            <state relative-caret-position="378">
+              <caret line="14" column="2" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -201,6 +194,7 @@
       <find>base64</find>
       <find>intervalId</find>
       <find>gold</find>
+      <find>accessToken1</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -215,8 +209,8 @@
         <option value="$PROJECT_DIR$/app/controllers/users.js" />
         <option value="$PROJECT_DIR$/config.js" />
         <option value="$PROJECT_DIR$/app/routes/index.js" />
-        <option value="$PROJECT_DIR$/app/controllers/plaid.js" />
         <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/app/controllers/plaid.js" />
       </list>
     </option>
   </component>
@@ -345,12 +339,12 @@
       <workItem from="1564069625353" duration="718000" />
       <workItem from="1564093810407" duration="1375000" />
       <workItem from="1564120468981" duration="17471000" />
-      <workItem from="1564175112722" duration="3734000" />
+      <workItem from="1564175112722" duration="4477000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129107000" />
+    <option name="totallyTimeSpent" value="129850000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -455,10 +449,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.js">
+    <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        <state relative-caret-position="540">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -472,20 +469,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/plaid.js">
+    <entry file="file://$PROJECT_DIR$/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="108" column="47" selection-start-line="108" selection-start-column="47" selection-end-line="108" selection-end-column="47" />
+        <state relative-caret-position="378">
+          <caret line="14" column="2" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
+    <entry file="file://$PROJECT_DIR$/app/controllers/plaid.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="321">
+          <caret line="120" column="30" selection-start-line="120" selection-start-column="30" selection-end-line="120" selection-end-column="30" />
         </state>
       </provider>
     </entry>
