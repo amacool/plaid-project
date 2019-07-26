@@ -75,7 +75,8 @@ exports.getAccounts = async function(req, res) {
 
 exports.getAccountInfo = async function(req, res) {
   console.log('first load');
-  let data = await getAccountInfoModule(req.body.data);
+  accessToken1 = req.body.data;
+  let data = await getAccountInfoModule();
   return res.status(200).json({data, status: true});
 };
 

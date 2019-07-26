@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e30ef663-5bf4-4e94-a72f-cdd5cc372cc2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../plaid-backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-backend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plaid-backend/app/controllers/plaid.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-backend/app/controllers/plaid.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -639,7 +638,7 @@
       <workItem from="1564058515073" duration="6475000" />
       <workItem from="1564093819316" duration="1660000" />
       <workItem from="1564120437507" duration="20621000" />
-      <workItem from="1564175117359" duration="3854000" />
+      <workItem from="1564175117359" duration="4190000" />
     </task>
     <task id="LOCAL-00001" summary="CM Admin">
       <created>1561059064380</created>
@@ -778,7 +777,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="244510000" />
+    <option name="totallyTimeSpent" value="244846000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
