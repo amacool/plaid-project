@@ -17,6 +17,7 @@ const plaidActions = {
   GET_ACCOUNT_INFO: 'GET_ACCOUNT_INFO',
   GET_ACCOUNT_INFO_SUCCESS: 'GET_ACCOUNT_INFO_SUCCESS',
   GET_ACCOUNT_INFO_FAILED: 'GET_ACCOUNT_INFO_FAILED',
+  GET_ACCOUNT_INFO1: 'GET_ACCOUNT_INFO1',
   
   getAccountList: data => ({type: plaidActions.GET_ACCOUNT_LIST, data}),
   getAccountListSuccess: data => ({type: plaidActions.GET_ACCOUNT_LIST_SUCCESS, data}),
@@ -27,6 +28,7 @@ const plaidActions = {
   getAccountInfo: data => ({type: plaidActions.GET_ACCOUNT_INFO, data}),
   getAccountInfoSuccess: data => ({type: plaidActions.GET_ACCOUNT_INFO_SUCCESS, data}),
   getAccountInfoFailed: () => ({type: plaidActions.GET_ACCOUNT_INFO_FAILED}),
+  getAccountInfo1: data => ({type: plaidActions.GET_ACCOUNT_INFO1, data}),
   getPlaidPublicToken: () => ({type: plaidActions.GET_PUBLIC_TOKEN}),
   getPlaidPublicTokenSuccess: data => ({type: plaidActions.GET_PUBLIC_TOKEN_SUCCESS, data}),
   getPlaidPublicTokenFailed: () => ({type: plaidActions.GET_PUBLIC_TOKEN_FAILED}),

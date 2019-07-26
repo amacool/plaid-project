@@ -66,6 +66,20 @@ export function* getAccountInfo(data) {
   }
 }
 
+export function* getAccountInfo1(data) {
+  yield call(postApi, {url: 'plaid/getAccountInfo1', data: data});
+  // console.log(res.data);
+  // if (res && res.status) {
+  //   if (!res.data.transactions.transactions) {
+  //     notification('error', 'Information not prepared yet, please wait...');
+  //   }
+  //   yield put(actions.getAccountInfoSuccess(res.data));
+  // } else {
+  //   console.log(res);
+  //   yield put(actions.getAccountInfoFailed());
+  // }
+}
+
 export function* getAccountList(data) {
   let res = yield call(postApi, {url: 'plaid/getAccounts', data: data});
   if (res && res.status) {
@@ -90,6 +104,7 @@ export default function* rootSaga() {
     yield takeEvery(actions.GET_PUBLIC_TOKEN, getPublicToken),
     yield takeEvery(actions.GET_ACCESS_TOKEN, getAccessToken),
     yield takeEvery(actions.GET_ACCOUNT_INFO, getAccountInfo),
+    yield takeEvery(actions.GET_ACCOUNT_INFO1, getAccountInfo1),
     yield takeEvery(actions.GET_ACCOUNT_LIST, getAccountList),
     yield takeEvery(actions.GET_TRANSACTION_LIST, getTransactionList)
   ]);
