@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cadc1ca0-6ed7-411c-932e-d9a0bdd10ba3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app/controllers/plaid.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/plaid.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -105,12 +104,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="4381" />
+          <entry key="js" value="4382" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="4381" />
+          <entry key="JavaScript" value="4382" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -156,8 +155,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/plaid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="120" column="30" selection-start-line="120" selection-start-column="30" selection-end-line="120" selection-end-column="30" />
+            <state relative-caret-position="159">
+              <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
             </state>
           </provider>
         </entry>
@@ -339,12 +338,12 @@
       <workItem from="1564069625353" duration="718000" />
       <workItem from="1564093810407" duration="1375000" />
       <workItem from="1564120468981" duration="17471000" />
-      <workItem from="1564175112722" duration="4477000" />
+      <workItem from="1564175112722" duration="4838000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129850000" />
+    <option name="totallyTimeSpent" value="130211000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -478,8 +477,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/plaid.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="120" column="30" selection-start-line="120" selection-start-column="30" selection-end-line="120" selection-end-column="30" />
+        <state relative-caret-position="159">
+          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
         </state>
       </provider>
     </entry>
