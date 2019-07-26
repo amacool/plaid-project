@@ -17,6 +17,7 @@ const client = new plaid.Client(
 );
 
 let intervalId = null;
+let accessToken1 = null;
 
 // Exchange token flow - exchange a Link public_token for
 exports.getAccessToken = async function(req, res) {
@@ -80,14 +81,15 @@ exports.getAccountInfo = async function(req, res) {
 
 exports.getAccountInfo1 = async function(req, res) {
   console.log('thread start');
+  accessToken1 = req.body.data;
   intervalId = setInterval(getAccountInfoModule, 20000);
   return res.status(200);
 };
 
-const getAccountInfoModule = async function(accessToken) {
+const getAccountInfoModule = async function() {
   console.log('getting account info...');
-  let accounts = await getAccountList(accessToken);
-  let transactions = await getTransactionList(accessToken);
+  let accounts = await getAccountList(accessToken1);
+  let transactions = await getTransactionList(accessToken1);
   let accountsTemp = accounts.accounts;
   let transactionsTemp = transactions.transactions;
   if (!accountsTemp) {
