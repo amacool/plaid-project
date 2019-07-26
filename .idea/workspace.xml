@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7413bc8b-0a0c-42fd-8841-1efa88d5b26e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/plaid-backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/plaid-backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plaid-backend/app/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/plaid-backend/app/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plaid-backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/plaid-backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plaid-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/plaid-frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plaid-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/plaid-frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plaid-frontend/src/redux/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/plaid-frontend/src/redux/constants.js" afterDir="false" />
-    </list>
+    <list default="true" id="7413bc8b-0a0c-42fd-8841-1efa88d5b26e" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -22,6 +15,7 @@
     <session id="-40492958">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -2885,12 +2879,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564064290675</updated>
-      <workItem from="1564064292196" duration="244000" />
+      <workItem from="1564064292196" duration="403000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="244000" />
+    <option name="totallyTimeSpent" value="403000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2903,14 +2897,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24960339" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" visible="true" weight="0.32960895" />
-      <window_info anchor="bottom" id="Terminal" weight="0.32960895" />
+      <window_info anchor="bottom" id="Version Control" weight="0.32960895" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32960895" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
