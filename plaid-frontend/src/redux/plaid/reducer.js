@@ -2,11 +2,12 @@ import actions from './actions';
 
 const initState = {
   accountList: [],
-  transactionList: [],
-  balanceList: [],
+  transactionList: [],  // false: not prepared yet
+  balanceList: [],      // false: not prepared yet
   plaidPublicToken: null,
   plaidAccessToken: null,
   isLoading: false,
+  isAuthenticatingCancelled: false,
   isAuthenticating: false,
   pageNum: null,
   itemsPerPage: null,
@@ -15,6 +16,24 @@ const initState = {
 
 export default function plaidReducer(state = initState, { type, ...action }) {
   switch (type) {
+    case actions.GET_ACCOUNT_INFO:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case actions.GET_ACCOUNT_INFO_SUCCESS:
+      return {
+        ...state,
+        accountList: action.data.accounts.accounts || false,
+        transactionList: action.data.transactions.transactions || false,
+        isLoading: false
+      };
+    case actions.GET_ACCOUNT_INFO_FAILED:
+      return {
+        ...state,
+        isLoading: false
+      };
+
     case actions.GET_ACCOUNT_LIST:
       return {
         ...state,
@@ -86,7 +105,8 @@ export default function plaidReducer(state = initState, { type, ...action }) {
     case actions.GET_PUBLIC_TOKEN:
       return {
         ...state,
-        isAuthenticating: true
+        isAuthenticating: true,
+        isAuthenticatingCancelled: false
       };
     case actions.GET_PUBLIC_TOKEN_SUCCESS:
       return {
@@ -97,7 +117,8 @@ export default function plaidReducer(state = initState, { type, ...action }) {
     case actions.GET_PUBLIC_TOKEN_FAILED:
       return {
         ...state,
-        isAuthenticating: false
+        isAuthenticating: false,
+        isAuthenticatingCancelled: true
       };
       
     default:
