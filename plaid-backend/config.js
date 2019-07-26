@@ -1,6 +1,6 @@
 const port = 9000;
 const secretKey = 'secretKey';
-const SENDGRID_API_KEY = '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';
+const SENDGRID_API_KEY = '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';
 const expiredAfter = 60 * 60 * 1000;
 // plaid keys
 const devKey = {

