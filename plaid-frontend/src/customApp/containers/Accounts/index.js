@@ -59,18 +59,18 @@ class Accounts extends Component {
   };
   
   componentDidMount() {
-    const { isAuthenticating, getAccountList, getPlaidPublicToken, accountList } = this.props;
-    const accessToken = cookies.get('accessToken');
-    accessToken && accountList.length === 0 && getAccountList(accessToken);
-    !accessToken && !isAuthenticating && getPlaidPublicToken();
+    // const { isAuthenticating, getAccountList, getPlaidPublicToken, accountList } = this.props;
+    // const accessToken = cookies.get('accessToken');
+    // accessToken && accountList.length === 0 && getAccountList(accessToken);
+    // !accessToken && !isAuthenticating && getPlaidPublicToken();
   }
   
   componentWillReceiveProps(nextProps) {
-    const { getAccountList } = this.props;
-    const accessToken = cookies.get('accessToken');
-    if (nextProps.plaidAccessToken !== this.props.plaidAccessToken) {
-      getAccountList(accessToken);
-    }
+    // const { getAccountList } = this.props;
+    // const accessToken = cookies.get('accessToken');
+    // if (nextProps.plaidAccessToken !== this.props.plaidAccessToken) {
+    //   getAccountList(accessToken);
+    // }
   }
 
   sendChildCloseModal =(open) => {
@@ -108,7 +108,7 @@ class Accounts extends Component {
   render() {
     let {isLoading, classes, accountList} = this.props;
     // pageNum, itemsPerPage, totalPage
-    let csvData = accountList.map(item => {
+    let csvData = (accountList || []).map(item => {
       let temp = Object.assign({}, item);
       delete temp.balances;
       return temp;
@@ -124,10 +124,10 @@ class Accounts extends Component {
           />
         }
         {
-          (isLoading) &&
-          <DemoWrapper>
-            <Loader/>
-          </DemoWrapper>
+          // (isLoading) &&
+          // <DemoWrapper>
+          //   <Loader/>
+          // </DemoWrapper>
         }
         <Row>
           {cookies.get('accessToken') && <FullColumn>

@@ -54,19 +54,19 @@ class Transactions extends Component {
   };
   
   componentDidMount() {
-    const { isAuthenticating, getTransactionList, getPlaidPublicToken, transactionList } = this.props;
-    const accessToken = cookies.get('accessToken');
-    accessToken && transactionList.length === 0 && getTransactionList(accessToken);
+    // const { isAuthenticating, getTransactionList, getPlaidPublicToken, transactionList } = this.props;
+    // const accessToken = cookies.get('accessToken');
+    // accessToken && transactionList.length === 0 && getTransactionList(accessToken);
     // accessToken && getTransactionList(accessToken);
-    !accessToken && !isAuthenticating && getPlaidPublicToken();
+    // !accessToken && !isAuthenticating && getPlaidPublicToken();
   }
   
   componentWillReceiveProps(nextProps) {
-    const { getTransactionList } = this.props;
-    const accessToken = cookies.get('accessToken');
-    if (nextProps.plaidAccessToken !== this.props.plaidAccessToken) {
-      getTransactionList(accessToken);
-    }
+    // const { getTransactionList } = this.props;
+    // const accessToken = cookies.get('accessToken');
+    // if (nextProps.plaidAccessToken !== this.props.plaidAccessToken) {
+    //   getTransactionList(accessToken);
+    // }
   }
 
   isSelected = id => this.state.selected.indexOf(id) !== -1;
@@ -85,7 +85,7 @@ class Transactions extends Component {
     let {selected} = this.state;
     let {isLoading, classes, transactionList} = this.props;
     // pageNum, itemsPerPage, totalPage
-    let csvData = transactionList.map(item => {
+    let csvData = (transactionList || []).map(item => {
       let temp = Object.assign({}, item);
       delete temp.category;
       delete temp.location;
@@ -96,10 +96,10 @@ class Transactions extends Component {
     return (
       <LayoutWrapper>
         {
-          (isLoading) &&
-          <DemoWrapper>
-            <Loader/>
-          </DemoWrapper>
+          // (isLoading) &&
+          // <DemoWrapper>
+          //   <Loader/>
+          // </DemoWrapper>
         }
         <Row>
           {cookies.get('accessToken') && <FullColumn>

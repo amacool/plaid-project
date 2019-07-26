@@ -6,41 +6,6 @@ import {postApi} from "../api";
 import {plaidPublicKey} from "../constants";
 const cookies = new Cookies();
 
-export function* getAccountList(data) {
-  let res = yield call(postApi, {url: 'plaid/getAccounts', data: data});
-  if (res && res.status) {
-    yield put(actions.getAccountListSuccess(res.data.accounts));
-  } else {
-    console.log(res);
-    yield put(actions.getAccountListFailed());
-  }
-}
-
-export function* getTransactionList(data) {
-  let res = yield call(postApi, {url: 'plaid/getTransactions', data: data});
-  if (res && res.status) {
-    yield put(actions.getTransactionListSuccess(res.data.transactions));
-  } else {
-    yield put(actions.getTransactionListFailed());
-  }
-}
-
-export function* getAccessToken(data) {
-  let res = yield call(postApi, {url: 'plaid/getPlaidAccessToken', data: data});
-  if (res && res.status) {
-    let now = new Date();
-    now.setDate(now.getDate() + 30);
-    cookies.set('accessToken', res.data.access_token, {path: '/', expires: now});
-    if (res.data.transactions.transactions) {
-      yield put(actions.getTransactionListSuccess(res.data.transactions.transactions));
-    }
-    yield put(actions.getAccountListSuccess(res.data.accounts.accounts));
-    yield put(actions.getPlaidAccessTokenSuccess(res.data.access_token));
-  } else {
-    yield put(actions.getPlaidAccessTokenFailed());
-  }
-}
-
 export function* getPublicToken() {
   if (!window.Plaid)
     return;
@@ -75,10 +40,56 @@ export function* getPublicToken() {
   }
 }
 
+export function* getAccessToken(data) {
+  let res = yield call(postApi, {url: 'plaid/getPlaidAccessToken', data: data});
+  if (res && res.status) {
+    let now = new Date();
+    now.setDate(now.getDate() + 30);
+    cookies.set('accessToken', res.data.access_token, {path: '/', expires: now});
+    yield put(actions.getPlaidAccessTokenSuccess(res.data.access_token));
+  } else {
+    yield put(actions.getPlaidAccessTokenFailed());
+  }
+}
+
+export function* getAccountInfo(data) {
+  let res = yield call(postApi, {url: 'plaid/getAccountInfo', data: data});
+  console.log(res.data);
+  if (res && res.status) {
+    if (!res.data.transactions.transactions) {
+      notification('error', 'Information not prepared yet, please wait...');
+    }
+    yield put(actions.getAccountInfoSuccess(res.data));
+  } else {
+    console.log(res);
+    yield put(actions.getAccountInfoFailed());
+  }
+}
+
+export function* getAccountList(data) {
+  let res = yield call(postApi, {url: 'plaid/getAccounts', data: data});
+  if (res && res.status) {
+    yield put(actions.getAccountListSuccess(res.data.accounts));
+  } else {
+    console.log(res);
+    yield put(actions.getAccountListFailed());
+  }
+}
+
+export function* getTransactionList(data) {
+  let res = yield call(postApi, {url: 'plaid/getTransactions', data: data});
+  if (res && res.status) {
+    yield put(actions.getTransactionListSuccess(res.data.transactions));
+  } else {
+    yield put(actions.getTransactionListFailed());
+  }
+}
+
 export default function* rootSaga() {
   yield all([
     yield takeEvery(actions.GET_PUBLIC_TOKEN, getPublicToken),
     yield takeEvery(actions.GET_ACCESS_TOKEN, getAccessToken),
+    yield takeEvery(actions.GET_ACCOUNT_INFO, getAccountInfo),
     yield takeEvery(actions.GET_ACCOUNT_LIST, getAccountList),
     yield takeEvery(actions.GET_TRANSACTION_LIST, getTransactionList)
   ]);

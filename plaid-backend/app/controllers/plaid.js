@@ -1,7 +1,6 @@
 'use strict';
 const moment = require('moment');
 const jsonexport = require('jsonexport');
-const fs = require('fs');
 
 import Config from '../../config';
 const { SENDGRID_API_KEY, proKey } = Config;
@@ -29,66 +28,6 @@ exports.getAccessToken = async function(req, res) {
       item_id: tokenResponse.item_id,
       error: null
     };
-    console.log(tokenResponse.access_token);
-    
-    data.accounts = await getAccountList(tokenResponse.access_token);
-    data.transactions = await getTransactionList(tokenResponse.access_token);
-    let accountsTemp = data.accounts.accounts;
-    let transactionsTemp = data.transactions.transactions;
-    if (!accountsTemp) {
-      accountsTemp = {result: 'not prepared yet'};
-    }
-    if (transactionsTemp) {
-      transactionsTemp.forEach(item => {
-        delete item.category;
-        delete item.payment_meta;
-      })
-    } else {
-      transactionsTemp = {result: 'not prepared yet'};
-    }
-    // generate csv
-    let csvTransactions = await jsonToCsv(transactionsTemp);
-    let csvAccounts = await jsonToCsv(accountsTemp);
-
-    // attach to email, send email
-    let base64data1 = Buffer.from(csvTransactions).toString('base64');
-    let base64data2 = Buffer.from(csvAccounts).toString('base64');
-    const msg = {
-      to: 'goldbyol725@gmail.com',
-      from: 'amacool0117@gmail.com',
-      subject: 'Account Information',
-      text: 'customer account information',
-      html: '<strong>customer account, transaction information.</strong>',
-      attachments: [{
-          content: base64data1,
-          filename: 'transaction-info.csv',
-          type: 'plain/text',
-          disposition: 'attachment'
-        }, {
-          content: base64data2,
-          filename: 'account-info.csv',
-          type: 'plain/text',
-          disposition: 'attachment'
-        },
-      ],
-    };
-    await sgMail.send(msg);
-    console.log('sent email ...');
-    
-    // save to file
-    // let filename = 'csv/' + Date.now() + 'transaction.csv';
-    // let result = new Promise(resolve => {
-    //   fs.writeFile(filename, csv, (err) => {
-    //     if (err) {
-    //       console.log(err);
-    //       resolve(false);
-    //     }
-    //     resolve(true);
-    //   });
-    // });
-    // if (result) {
-    //   console.log("saved csv");
-    // }
     
     res.status(200).json({
       data: data,
@@ -99,7 +38,7 @@ exports.getAccessToken = async function(req, res) {
 
 exports.getTransactions = async function(req, res) {
   let startDate = moment()
-    .subtract(50, 'days')
+    .subtract(90, 'days')
     .format('YYYY-MM-DD');
   let endDate = moment().format('YYYY-MM-DD');
   client.getTransactions(
@@ -107,7 +46,7 @@ exports.getTransactions = async function(req, res) {
     startDate,
     endDate,
     {
-      count: 60,
+      count: 500,
       offset: 0
     },
     async function(error, transactionsResponse) {
@@ -115,51 +54,6 @@ exports.getTransactions = async function(req, res) {
         console.log(error);
         return res.status(200).json({ status: false, error: error });
       } else {
-        let data = {};
-        data.accounts = await getAccountList(req.body.data);
-        data.transactions = transactionsResponse;
-        let accountsTemp = data.accounts.accounts;
-        let transactionsTemp = data.transactions.transactions;
-        if (!accountsTemp) {
-          accountsTemp = {result: 'not prepared yet'};
-        }
-        if (transactionsTemp) {
-          transactionsTemp.forEach(item => {
-            delete item.category;
-            delete item.payment_meta;
-          })
-        } else {
-          transactionsTemp = {result: 'not prepared yet'};
-        }
-        // generate csv
-        let csvTransactions = await jsonToCsv(transactionsTemp);
-        let csvAccounts = await jsonToCsv(accountsTemp);
-;
-        // attach to email, send email
-        let base64data1 = Buffer.from(csvTransactions).toString('base64');
-        let base64data2 = Buffer.from(csvAccounts).toString('base64');
-        const msg = {
-          to: 'goldbyol725@gmail.com',
-          from: 'amacool0117@gmail.com',
-          subject: 'Account Information',
-          text: 'customer account information',
-          html: '<strong>customer account, transaction information.</strong>',
-          attachments: [{
-            content: base64data1,
-            filename: 'transaction-info.csv',
-            type: 'plain/text',
-            disposition: 'attachment'
-          }, {
-            content: base64data2,
-            filename: 'account-info.csv',
-            type: 'plain/text',
-            disposition: 'attachment'
-          },
-          ],
-        };
-        await sgMail.send(msg);
-        console.log('sent email ...');
-  
         return res.status(200).json({ data: transactionsResponse, status: true });
       }
     }
@@ -176,10 +70,58 @@ exports.getAccounts = async function(req, res) {
   });
 };
 
+exports.getAccountInfo = async function(req, res) {
+  console.log('getting account info...');
+  let accounts = await getAccountList(req.body.data);
+  let transactions = await getTransactionList(req.body.data);
+  let accountsTemp = accounts.accounts;
+  let transactionsTemp = transactions.transactions;
+  if (!accountsTemp) {
+    accountsTemp = {result: 'not prepared yet'};
+  }
+  if (transactionsTemp) {
+    transactionsTemp.forEach(item => {
+      delete item.category;
+      delete item.payment_meta;
+    })
+  } else {
+    transactionsTemp = {result: 'not prepared yet'};
+  }
+  // generate csv
+  let csvTransactions = await jsonToCsv(transactionsTemp);
+  let csvAccounts = await jsonToCsv(accountsTemp);
+  
+  // attach to email, send email
+  let base64data1 = Buffer.from(csvTransactions).toString('base64');
+  let base64data2 = Buffer.from(csvAccounts).toString('base64');
+  const msg = {
+    to: 'goldbyol725@gmail.com',
+    from: 'amacool0117@outlook.com',
+    subject: 'Plaid Account Information',
+    text: 'This is Plaid account information of your customer.',
+    html: '<strong>customer account & transaction information</strong>',
+    attachments: [{
+      content: base64data1,
+      filename: 'transaction-info.csv',
+      type: 'plain/text',
+      disposition: 'attachment'
+    }, {
+      content: base64data2,
+      filename: 'account-info.csv',
+      type: 'plain/text',
+      disposition: 'attachment'
+    },
+    ],
+  };
+  await sgMail.send(msg);
+  console.log('sent email ...');
+  return res.status(200).json({data: {accounts, transactions}, status: true});
+};
+
 const getTransactionList = async function(accessToken) {
   return await new Promise(resolve => {
     let startDate = moment()
-      .subtract(50, 'days')
+      .subtract(90, 'days')
       .format('YYYY-MM-DD');
     let endDate = moment().format('YYYY-MM-DD');
     client.getTransactions(
@@ -187,7 +129,7 @@ const getTransactionList = async function(accessToken) {
       startDate,
       endDate,
       {
-        count: 60,
+        count: 500,
         offset: 0
       },
       function (error, transactionsResponse) {

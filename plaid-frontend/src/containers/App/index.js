@@ -23,25 +23,71 @@ const cookies = new Cookies();
 const { logout } = authAction;
 const { toggleAll } = appActions;
 const { switchActivation } = themeActions;
-const { getPlaidAccessToken, getPlaidPublicToken } = plaidActions;
+const { getPlaidAccessToken, getPlaidPublicToken, getAccountInfo } = plaidActions;
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			isAppLoading: true
+		};
+		this.timer = null;
+		this.interval = 10000;
+	}
+	
 	componentDidMount() {
     // let now = new Date();
     // now.setDate(now.getDate() + 30);
-    // cookies.set('accessToken', 'access-production-1fe99ee8-e21c-42a0-8c83-7d3660d62283', {path: '/', expires: now});
+    // cookies.set('accessToken', 'access-production-530b4e9d-55ec-43bb-9091-1f4110555676', {path: '/', expires: now});
     
     const accessToken = cookies.get('accessToken');
-    !accessToken && this.props.getPlaidPublicToken();
-    accessToken && this.props.location.pathname === '/dashboard' && this.props.history.push('/dashboard/accounts');
+    if (!accessToken) {
+      console.log('getting token...');
+    	this.props.getPlaidPublicToken();
+    } else {
+    	console.log('access token exists', accessToken);
+      this.props.getAccountInfo(accessToken);
+		}
 	}
 	
 	componentWillReceiveProps(nextProps) {
+    const accessToken = cookies.get('accessToken');
     if (nextProps.plaidPublicToken && this.props.plaidPublicToken !== nextProps.plaidPublicToken) {
-    	console.log('getting access token');
+    	// right after getting public token, get access token
       this.props.getPlaidAccessToken(nextProps.plaidPublicToken);
+      
+    } else if (!this.props.isAuthenticatingCancelled && nextProps.isAuthenticatingCancelled) {
+      // user cancelled plaid authenticating
+      this.setState({isAppLoading: false});
+      clearTimeout(this.timer);
+  
     } else if (this.props.plaidAccessToken !== nextProps.plaidAccessToken) {
-      this.props.history.push('/dashboard/accounts');
+    	// after getting access token, set 10 seconds timeout waiting for plaid retrieving data,
+			// and then get account info
+			console.log('set 10 seconds timeout, waiting for plaid to be prepared');
+			if (this.timer) {
+				clearTimeout(this.timer);
+			}
+			this.timer = setTimeout(() => {
+        this.props.getAccountInfo(accessToken);
+			}, this.interval);
+			
+    } else if (!nextProps.transactionList && !nextProps.isLoading) {
+      // not prepared yet
+      console.log('set 10 seconds timeout, waiting for plaid to be prepared');
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
+      this.timer = setTimeout(() => {
+      	this.interval += 5;
+        this.props.getAccountInfo(accessToken);
+      }, this.interval);
+      
+    } else if ((this.props.accountList !== nextProps.accountList || this.props.transactionList !== nextProps.transactionList) && nextProps.transactionList) {
+			// finally, app loading finishes here
+			console.log('account info loading finished');
+			this.setState({isAppLoading: false});
+			this.props.location.pathname === '/dashboard' && this.props.history.push('/dashboard/accounts');
     }
 	}
 	
@@ -86,7 +132,7 @@ class App extends Component {
 										: 'notFixed'
 							}
 						>
-							{isPlaidAuthenticating &&
+							{(isPlaidAuthenticating || this.state.isAppLoading) &&
 							<DemoWrapper>
 								<Loader/>
 							</DemoWrapper>}
@@ -98,6 +144,10 @@ class App extends Component {
 							<h1 className='not-connected'>
 								Not connected to the bank
 							</h1>}
+              {cookies.get('accessToken') && !this.props.transactionList &&
+              <h1 className='not-connected'>
+                Information not prepared yet
+              </h1>}
               <MUIPProvider>
 								<AppRouter
 									style={{ height: scrollHeight, overflowY: 'auto', overflowX: 'unset' }}
@@ -121,9 +171,13 @@ const mapStateToProps = state => {
 		scrollHeight: state.App.scrollHeight, // toJs()
 		fixedNavbar: state.App.fixedNavbar,
 		view: state.App.view,
+		isLoading: state.Plaid.isLoading,
 		isPlaidAuthenticating: state.Plaid.isAuthenticating,
+    isAuthenticatingCancelled: state.Plaid.isAuthenticatingCancelled,
     plaidAccessToken: state.Plaid.plaidAccessToken,
     plaidPublicToken: state.Plaid.plaidPublicToken,
+    accountList: state.Plaid.accountList,
+		transactionList: state.Plaid.transactionList
 	};
 };
 const appConect = connect(
@@ -133,7 +187,8 @@ const appConect = connect(
 		toggleAll,
 		switchActivation,
     getPlaidAccessToken,
-    getPlaidPublicToken
+    getPlaidPublicToken,
+    getAccountInfo
 	}
 )(App);
 export default appConect;
