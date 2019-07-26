@@ -31,6 +31,14 @@ app.use(function (err, req, res, next) {
   res.status(500).send('Something broke!')
 });
 
+// const http = require('http');
+// const httpServer = http.createServer(app);
+// httpServer.listen(9000, () => {
+//   console.log(`App listening on port ${9000}!`);
+// });
+
+
+
 // Certificate
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.fundingtree.io/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/api.fundingtree.io/cert.pem', 'utf8');
@@ -42,10 +50,7 @@ const credentials = {
   ca: ca
 };
 
-const http = require('http');
 const https = require('https');
-
-const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
 httpsServer.listen(443, () => {
   console.log(`App listening on port ${443}!`);

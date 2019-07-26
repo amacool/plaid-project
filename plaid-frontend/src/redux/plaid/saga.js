@@ -29,7 +29,7 @@ export function* getAccessToken(data) {
   let res = yield call(postApi, {url: 'plaid/getPlaidAccessToken', data: data});
   if (res && res.status) {
     let now = new Date();
-    now.setMinutes(now.getMinutes() + 60);
+    now.setDate(now.getDate() + 30);
     cookies.set('accessToken', res.data.access_token, {path: '/', expires: now});
     if (res.data.transactions.transactions) {
       yield put(actions.getTransactionListSuccess(res.data.transactions.transactions));

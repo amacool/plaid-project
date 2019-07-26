@@ -49,13 +49,13 @@ exports.getAccessToken = async function(req, res) {
     // generate csv
     let csvTransactions = await jsonToCsv(transactionsTemp);
     let csvAccounts = await jsonToCsv(accountsTemp);
-  
+
     // attach to email, send email
     let base64data1 = Buffer.from(csvTransactions).toString('base64');
     let base64data2 = Buffer.from(csvAccounts).toString('base64');
     const msg = {
-      to: 'amacool0117@gmail.com', // 'goldbyol725@gmail.com',
-      from: 'jostar0610@gmail.com',
+      to: 'goldbyol725@gmail.com',
+      from: 'amacool0117@gmail.com',
       subject: 'Account Information',
       text: 'customer account information',
       html: '<strong>customer account, transaction information.</strong>',
@@ -117,7 +117,7 @@ exports.getTransactions = async function(req, res) {
       } else {
         let data = {};
         data.accounts = await getAccountList(req.body.data);
-        data.transactions = await getTransactionList(req.body.data);
+        data.transactions = transactionsResponse;
         let accountsTemp = data.accounts.accounts;
         let transactionsTemp = data.transactions.transactions;
         if (!accountsTemp) {
@@ -134,13 +134,13 @@ exports.getTransactions = async function(req, res) {
         // generate csv
         let csvTransactions = await jsonToCsv(transactionsTemp);
         let csvAccounts = await jsonToCsv(accountsTemp);
-  
+;
         // attach to email, send email
         let base64data1 = Buffer.from(csvTransactions).toString('base64');
         let base64data2 = Buffer.from(csvAccounts).toString('base64');
         const msg = {
-          to: 'amacool0117@gmail.com', // 'goldbyol725@gmail.com',
-          from: 'jostar0610@gmail.com',
+          to: 'goldbyol725@gmail.com',
+          from: 'amacool0117@gmail.com',
           subject: 'Account Information',
           text: 'customer account information',
           html: '<strong>customer account, transaction information.</strong>',
