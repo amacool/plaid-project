@@ -12,14 +12,11 @@ import Scrollbars from '../../../components/utility/customScrollBar';
 import {Row, FullColumn} from '../../../components/utility/rowColumn';
 import LayoutWrapper from '../../../components/utility/layoutWrapper/index';
 import CardWrapper, {
-  Table,
-  // UserPagination,
+  Table
 } from '../plaid.style';
 import {columns} from './config';
 import plaidActions from '../../../redux/plaid/actions';
 import {bindActionCreators} from "redux";
-// import Pagination from '../../../components/uielements/pagination';
-// import 'rc-pagination/assets/index.css';
 import {DemoWrapper} from "../../../components/utility/papersheet";
 import Loader from "../../../components/utility/Loader";
 import {CSVLink} from "react-csv";
@@ -83,7 +80,6 @@ class Transactions extends Component {
   render() {
     let {selected} = this.state;
     let {isLoading, classes, transactionList} = this.props;
-    // pageNum, itemsPerPage, totalPage
     let csvData = (transactionList || []).map(item => {
       let temp = Object.assign({}, item);
       delete temp.category;
@@ -138,15 +134,6 @@ class Transactions extends Component {
                         })}
                       </TableBody>
                     </Table>
-                    {/*<UserPagination>*/}
-                      {/*<Pagination*/}
-                        {/*defaultCurrent={pageNum}*/}
-                        {/*total={totalPage}*/}
-                        {/*onChange={page => {*/}
-                          {/*this.props.getUserList({pageNum: page, itemsPerPage: itemsPerPage});*/}
-                        {/*}}*/}
-                      {/*/>*/}
-                    {/*</UserPagination>*/}
                     <CSVLink
                       data={csvData}
                       filename={"transactions.csv"}
