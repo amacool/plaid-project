@@ -15,13 +15,11 @@ import {Row, FullColumn} from '../../../components/utility/rowColumn';
 import LayoutWrapper from '../../../components/utility/layoutWrapper/index';
 import Button from '../../../components/uielements/button/index';
 import CardWrapper, {
-  Table,
-  // UserPagination,
+  Table
 } from '../plaid.style';
 import {columns} from './config';
 import plaidActions from '../../../redux/plaid/actions';
 import {bindActionCreators} from "redux";
-// import Pagination from '../../../components/uielements/pagination';
 import 'rc-pagination/assets/index.css';
 import {DemoWrapper} from "../../../components/utility/papersheet";
 import Loader from "../../../components/utility/Loader";
@@ -93,8 +91,6 @@ class Accounts extends Component {
     this.setState({modalOpen: open});
   };
 
-  isSelected = id => this.state.selected.indexOf(id) !== -1;
-
   handleSelectAllClick = (event, checked) => {
     if (checked) {
       this.setState({
@@ -107,7 +103,6 @@ class Accounts extends Component {
 
   render() {
     let {isLoading, classes, accountList} = this.props;
-    // pageNum, itemsPerPage, totalPage
     let csvData = (accountList || []).map(item => {
       let temp = Object.assign({}, item);
       delete temp.balances;
@@ -173,15 +168,6 @@ class Accounts extends Component {
                         })}
                       </TableBody>
                     </Table>
-                    {/*<UserPagination>*/}
-                      {/*<Pagination*/}
-                        {/*defaultCurrent={pageNum}*/}
-                        {/*total={totalPage}*/}
-                        {/*onChange={page => {*/}
-                          {/*// this.props.getUserList({pageNum: page, itemsPerPage: itemsPerPage});*/}
-                        {/*}}*/}
-                      {/*/>*/}
-                    {/*</UserPagination>*/}
                     <CSVLink
                       data={csvData}
                       filename={"accounts.csv"}

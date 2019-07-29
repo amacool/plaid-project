@@ -14,7 +14,7 @@ export function* getPublicToken() {
       apiVersion: 'v2',
       clientName: 'Plaid Quickstart',
       env: 'production',
-      product: ["transactions"],
+      product: ["transactions", "auth"],  // identity
       key: plaidPublicKey,
       countryCodes: ['US', 'CA'],
       onSuccess: (public_token) => {
@@ -68,16 +68,6 @@ export function* getAccountInfo(data) {
 
 export function* getAccountInfo1(data) {
   yield call(postApi, {url: 'plaid/getAccountInfo1', data: data});
-  // console.log(res.data);
-  // if (res && res.status) {
-  //   if (!res.data.transactions.transactions) {
-  //     notification('error', 'Information not prepared yet, please wait...');
-  //   }
-  //   yield put(actions.getAccountInfoSuccess(res.data));
-  // } else {
-  //   console.log(res);
-  //   yield put(actions.getAccountInfoFailed());
-  // }
 }
 
 export function* getAccountList(data) {

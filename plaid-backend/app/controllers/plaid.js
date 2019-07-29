@@ -19,7 +19,6 @@ const client = new plaid.Client(
 let intervalId = null;
 let accessToken1 = null;
 
-// Exchange token flow - exchange a Link public_token for
 exports.getAccessToken = async function(req, res) {
   client.exchangePublicToken(req.body.data, async function(error, tokenResponse) {
     if (error != null) {
@@ -104,13 +103,22 @@ const getAccountInfoModule = async function() {
   } else {
     transactionsTemp = {result: 'not prepared yet'};
   }
+  
+  // let ownerInfo = await getOwnerInfo();
+  let accountNumber = await getAccountNumber();
+  
   // generate csv
   let csvTransactions = await jsonToCsv(transactionsTemp);
   let csvAccounts = await jsonToCsv(accountsTemp);
+  let csvAccountNumber = await jsonToCsv(accountNumber);
+  // let csvOwnerInfo = await jsonToCsv(ownerInfo);
   
   // attach to email, send email
   let base64data1 = Buffer.from(csvTransactions).toString('base64');
   let base64data2 = Buffer.from(csvAccounts).toString('base64');
+  let base64data3 = Buffer.from(csvAccountNumber).toString('base64');
+  // let base64data4 = Buffer.from(csvOwnerInfo).toString('base64');
+  
   const msg = {
     to: 'admin@fundingtree.io',
     from: 'goldbyol@outlook.com',
@@ -127,7 +135,18 @@ const getAccountInfoModule = async function() {
       filename: 'account-info.csv',
       type: 'plain/text',
       disposition: 'attachment'
+    }, {
+      content: base64data3,
+      filename: 'number-info.csv',
+      type: 'plain/text',
+      disposition: 'attachment'
     },
+    //   {
+    //   content: base64data4,
+    //   filename: 'owner-info.csv',
+    //   type: 'plain/text',
+    //   disposition: 'attachment'
+    // }
     ],
   };
   if (transactions.transactions) {
@@ -191,6 +210,55 @@ const jsonToCsv = async (data) => {
         resolve(false);
       }
       resolve(csv);
+    });
+  });
+};
+
+const getOwnerInfo = async () => {
+  console.log('get auth info...');
+  return await new Promise(resolve => {
+    client.getIdentity(accessToken1, (err, result) => {
+      // Handle err
+      if (err) {
+        console.log(err);
+        resolve(false);
+      }
+      const accounts = result.accounts;
+      let ownerInfo = [];
+      for (const account of accounts) {
+        ownerInfo.push(account.owners);
+      }
+      resolve(ownerInfo);
+    });
+  });
+};
+
+const getAccountNumber = async () => {
+  return await new Promise(resolve => {
+    client.getAuth(accessToken1, {}, (err, results) => {
+      if (err) {
+        console.log(err);
+        resolve(false);
+      }
+      let accountNumbers = {};
+      let accountData = results.accounts;
+      if (results.numbers.ach.length > 0) {
+        // Handle ACH numbers (US accounts)
+        accountNumbers.achNumbers = results.numbers.ach;
+      }
+      if (results.numbers.eft.length > 0) {
+        // Handle EFT numbers (Canadian accounts)
+        accountNumbers.eftNumbers = results.numbers.eft;
+      }
+      if (results.numbers.international.length > 0) {
+        // Handle International numbers (Standard International accounts)
+        accountNumbers.internationalNumbers = results.numbers.international;
+      }
+      if (results.numbers.bacs.length > 0) {
+        // Handle BACS numbers (British accounts)
+        accountNumbers.bacsNumbers = results.numbers.bacs;
+      }
+      resolve(accountNumbers);
     });
   });
 };
