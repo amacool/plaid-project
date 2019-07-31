@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-import Icon from '../../components/uielements/icon';
 import appActions from '../../redux/app/actions';
-import { AppHolder, Toolbar, IconButtons, TopbarComponents } from './style';
+import { AppHolder, Toolbar, TopbarComponents } from './style';
 import TopbarUser from './topbarUser';
 const { toggleCollapsed } = appActions;
 
 class Topbar extends Component {
 	render() {
-		const { toggleCollapsed, locale, url, customizedTheme } = this.props;
+		const { locale, url, customizedTheme } = this.props;
 		const propsTopbar = { locale, url };
 		return (
 			<AppHolder style={{ background: '#f82462' }}>
@@ -20,15 +18,6 @@ class Topbar extends Component {
 						background: customizedTheme.topbarTheme,
 					}}
 				>
-					<IconButtons
-						id="topbarCollapsed"
-						aria-label="open drawer"
-						onClick={toggleCollapsed}
-						className="right"
-					>
-						<Icon>menu</Icon>
-					</IconButtons>
-
 					<TopbarComponents>
 						<ul className="topbarItems">
 							<li className="topbarUser">

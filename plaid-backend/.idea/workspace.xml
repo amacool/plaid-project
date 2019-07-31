@@ -4,10 +4,14 @@
     <list default="true" id="cadc1ca0-6ed7-411c-932e-d9a0bdd10ba3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/plaid.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/plaid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plaid-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/customApp/containers/Accounts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/customApp/containers/Accounts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/customApp/containers/Transactions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/customApp/containers/Transactions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/containers/App/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/containers/App/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/containers/Topbar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/containers/Topbar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/containers/Topbar/topbarUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/containers/Topbar/topbarUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/customApp/containers/Balances/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/customApp/containers/Balances/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/redux/plaid/saga.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/redux/plaid/saga.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plaid-frontend/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/src/router.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -95,8 +99,9 @@
     <session id="-145848221">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="19" />
-          <entry key="project.open.time.1" value="10" />
+          <entry key="project.closed" value="23" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.1" value="12" />
           <entry key="project.open.time.17" value="3" />
           <entry key="project.open.time.18" value="2" />
           <entry key="project.open.time.19" value="1" />
@@ -105,17 +110,17 @@
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="21" />
+          <entry key="project.opened" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="5091" />
+          <entry key="js" value="6103" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="5091" />
+          <entry key="JavaScript" value="6103" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -134,11 +139,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+            <state relative-caret-position="257">
+              <caret line="10" column="36" lean-forward="true" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -161,17 +166,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/plaid.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="252" column="13" selection-start-line="252" selection-start-column="13" selection-end-line="252" selection-end-column="13" />
+            <state relative-caret-position="81">
+              <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+              <folding>
+                <element signature="e#1225#1767#0" />
+                <element signature="e#1817#2107#0" />
+                <element signature="e#2160#2343#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+            <state relative-caret-position="-13">
+              <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -200,8 +210,13 @@
       <find>intervalId</find>
       <find>accessToken1</find>
       <find>accesstoken</find>
-      <find>gold</find>
       <find>amacool</find>
+      <find>fundin</find>
+      <find>results.accounts</find>
+      <find>gold</find>
+      <find>isSendEmail</find>
+      <find>getAssets</find>
+      <find>getOwnerInfo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -249,7 +264,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -278,6 +292,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -348,12 +363,16 @@
       <workItem from="1564120468981" duration="17471000" />
       <workItem from="1564175112722" duration="8128000" />
       <workItem from="1564304282508" duration="8048000" />
-      <workItem from="1564416222731" duration="2612000" />
+      <workItem from="1564416222731" duration="8344000" />
+      <workItem from="1564469913529" duration="8137000" />
+      <workItem from="1564502334611" duration="1755000" />
+      <workItem from="1564562833834" duration="2080000" />
+      <workItem from="1564609303406" duration="3783000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144161000" />
+    <option name="totallyTimeSpent" value="165648000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -368,7 +387,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2244898" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17883995" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -381,8 +400,8 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49838883" weight="0.32960895" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5112782" side_tool="true" visible="true" weight="0.26815644" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.48872182" visible="true" weight="0.26815644" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.51396346" side_tool="true" visible="true" weight="0.22793296" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4860365" visible="true" weight="0.22793296" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -458,17 +477,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.js">
+    <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/plaid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="252" column="13" selection-start-line="252" selection-start-column="13" selection-end-line="252" selection-end-column="13" />
+        <state relative-caret-position="257">
+          <caret line="10" column="36" lean-forward="true" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -482,13 +497,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
+    <entry file="file://$PROJECT_DIR$/app/controllers/plaid.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        <state relative-caret-position="81">
+          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
           <folding>
-            <element signature="e#0#30#0" expanded="true" />
+            <element signature="e#1225#1767#0" />
+            <element signature="e#1817#2107#0" />
+            <element signature="e#2160#2343#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13">
+          <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
         </state>
       </provider>
     </entry>

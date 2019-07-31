@@ -31,12 +31,12 @@ app.use(function (err, req, res, next) {
   res.status(500).send('Something broke!')
 });
 
+
 // const http = require('http');
 // const httpServer = http.createServer(app);
 // httpServer.listen(9000, () => {
 //   console.log(`App listening on port ${9000}!`);
 // });
-
 
 
 // Certificate

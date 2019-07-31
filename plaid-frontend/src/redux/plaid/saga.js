@@ -14,7 +14,7 @@ export function* getPublicToken() {
       apiVersion: 'v2',
       clientName: 'Plaid Quickstart',
       env: 'production',
-      product: ["transactions", "auth"],  // identity
+      product: ["transactions", "auth", "assets"], // assets
       key: plaidPublicKey,
       countryCodes: ['US', 'CA'],
       onSuccess: (public_token) => {
@@ -44,9 +44,10 @@ export function* getAccessToken(data) {
   let res = yield call(postApi, {url: 'plaid/getPlaidAccessToken', data: data});
   if (res && res.status) {
     let now = new Date();
-    now.setDate(now.getDate() + 30);
+    now.setDate(now.getDate() + 180);
     cookies.set('accessToken', res.data.access_token, {path: '/', expires: now});
-    yield put(actions.getPlaidAccessTokenSuccess(res.data.access_token));
+    cookies.set('assetReportToken', res.data.asset_report_token, {path: '/', expires: now});
+    yield put(actions.getPlaidAccessTokenSuccess(res.data));
   } else {
     yield put(actions.getPlaidAccessTokenFailed());
   }
