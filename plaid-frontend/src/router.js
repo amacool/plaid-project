@@ -42,12 +42,21 @@ const PublicRoutes = ({history, isLoggedIn}) => (
       <Route
         exact
         path="/"
-        component={({history}) => {history.push('/dashboard');return null;}}
+        component={({history}) => {history.push('/load');return null;}}
       />
       <Route
-        path="/dashboard"
+        path="/load"
         component={App}
       />
+      {/*<Route*/}
+        {/*exact*/}
+        {/*path="/"*/}
+        {/*component={({history}) => {history.push('/dashboard');return null;}}*/}
+      {/*/>*/}
+      {/*<Route*/}
+        {/*path="/dashboard"*/}
+        {/*component={App}*/}
+      {/*/>*/}
     </div>
   </BrowserRouter>
 );

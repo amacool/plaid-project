@@ -61,7 +61,7 @@ class TopbarUser extends Component {
         </UserInformation>
 
         <SettingsList>
-          <Link to="/" onClick={() => this.handleDisconnect()} className="dropdownLink">
+          <Link to='/' onClick={() => this.handleDisconnect()} className="dropdownLink">
             <Icon>input</Icon>
             <p>Reconnect</p>
           </Link>

@@ -9,7 +9,6 @@ import {
   TableRow,
 } from '../../../components/uielements/table/index';
 import Typography from '../../../components/uielements/typography/index';
-import notification from '../../../components/notification/index';
 import HelperText from '../../../components/utility/helper-text/index';
 import Tooltip from '../../../components/uielements/tooltip/index';
 import Checkbox from '../../../components/uielements/checkbox/index';
@@ -30,7 +29,6 @@ import Pagination from '../../../components/uielements/pagination';
 import 'rc-pagination/assets/index.css';
 import {DemoWrapper} from "../../../components/utility/papersheet";
 import Loader from "../../../components/utility/Loader";
-// import {CSVLink} from "react-csv";
 
 const styles = theme => ({
   root: {

