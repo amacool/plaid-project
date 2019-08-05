@@ -6,6 +6,7 @@ const initState = {
   balanceList: [],      // false: not prepared yet
   plaidPublicToken: null,
   plaidAccessToken: null,
+  plaidAssetReportToken: null,
   isLoading: false,
   isAuthenticatingCancelled: false,
   isAuthenticating: false,
@@ -97,6 +98,23 @@ export default function plaidReducer(state = initState, { type, ...action }) {
         plaidAccessToken: action.data
       };
     case actions.GET_ACCESS_TOKEN_FAILED:
+      return {
+        ...state,
+        isAuthenticating: false
+      };
+  
+    case actions.GET_ASSET_REPORT_TOKEN:
+      return {
+        ...state,
+        isAuthenticating: true
+      };
+    case actions.GET_ASSET_REPORT_TOKEN_SUCCESS:
+      return {
+        ...state,
+        isAuthenticating: false,
+        plaidAssetReportToken: action.data
+      };
+    case actions.GET_ASSET_REPORT_TOKEN_FAILED:
       return {
         ...state,
         isAuthenticating: false

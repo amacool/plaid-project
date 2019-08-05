@@ -21,25 +21,48 @@ let assetReportToken = null;
 let isSendEmail = null;
 
 exports.getAccessToken = async function(req, res) {
+  console.log('getting access token...');
+  console.log(req.body.data);
   client.exchangePublicToken(req.body.data, async function(error, tokenResponse) {
     if (error != null) {
       console.log(error);
       return res.status(200).json({ data: null, status: false, error: error.error_message });
     }
     console.log(tokenResponse.access_token);
-    let {assetReportToken} = await createAssetsToken(tokenResponse.access_token);
+    
     let data = {
       access_token: tokenResponse.access_token,
-      asset_report_token: assetReportToken,
       item_id: tokenResponse.item_id,
       error: null
     };
-    console.log(assetReportToken);
     
     res.status(200).json({
       data: data,
       status: true
     });
+  });
+};
+
+exports.getAssetReportToken = async function(req, res) {
+  console.log('getting asset report token...');
+  console.log(req.body.data);
+  let {assetReportToken, errMessage, errType} = await createAssetsToken(req.body.data);
+  if (errMessage) {
+    return res.status(200).json({
+      data: null,
+      status: false,
+      error: errMessage,
+      updateItem: errType === 'ITEM_LOGIN_REQUIRED'
+    });
+  }
+  let data = {
+    assetReportToken,
+    error: null
+  };
+  console.log(assetReportToken);
+  return res.status(200).json({
+    data: data,
+    status: true
   });
 };
 
@@ -99,8 +122,8 @@ const getAccountInfoModule = async function() {
   console.log(assetReportToken);
   let accounts = await getAccountList(accessToken1);
   let transactions = await getTransactionList(accessToken1);
+  console.log('got accoutns, transactions');
   let {user} = await getAssets();
-  
   if (isSendEmail) {
     let accountsTemp = accounts.accounts;
     let transactionsTemp = transactions.transactions;
@@ -122,6 +145,7 @@ const getAccountInfoModule = async function() {
     let csvTransactions = await jsonToCsv(transactionsTemp);
     let csvAccounts = await jsonToCsv(accountsTemp);
     let csvAccountNumber = await jsonToCsv(accountNumber);
+    console.log(user);
     let csvOwnerInfo = await jsonToCsv(user);
   
     // attach to email, send email
@@ -168,12 +192,12 @@ const getAccountInfoModule = async function() {
         console.log('sent email ........................');
       } catch (err) {
         console.log(err);
-        console.log('timeout...')
+        console.log('timeout...');
         setTimeout(() => getAccountInfoModule(), 20000);
       }
     } else {
       console.log('not prepared yet ........................');
-      console.log('timeout...')
+      console.log('timeout...');
       setTimeout(() => getAccountInfoModule(), 20000);
     }
   }
@@ -181,6 +205,7 @@ const getAccountInfoModule = async function() {
 };
 
 const getTransactionList = async function(accessToken) {
+  console.log('getting transactions');
   return await new Promise(resolve => {
     let startDate = moment()
       .subtract(90, 'days')
@@ -207,6 +232,7 @@ const getTransactionList = async function(accessToken) {
 };
 
 const getAccountList = async function(accessToken) {
+  console.log('getting accounts');
   return await new Promise(resolve => {
     client.getAccounts(accessToken, function(error, accountsResponse) {
       if (error != null) {
@@ -232,6 +258,7 @@ const jsonToCsv = async (data) => {
 };
 
 const createAssetsToken = async (accessToken) => {
+  console.log('creating assets token ...');
   const daysRequested = 90;
   return await new Promise(resolve => {
     client.createAssetReport([accessToken], daysRequested, {},
@@ -239,7 +266,9 @@ const createAssetsToken = async (accessToken) => {
         if (error != null) {
           // Handle error.
           console.log(error);
-          resolve(false);
+          let errMessage = error.error_message;
+          let errType = error.error_type;
+          resolve({assetReportToken: false, errMessage, errType});
         }
       
         const assetReportId = createResponse.asset_report_id;
@@ -250,6 +279,7 @@ const createAssetsToken = async (accessToken) => {
 };
 
 const getAssets = async () => {
+  console.log('getting assets...');
   return await new Promise(resolve => {
     client.getAssetReport(assetReportToken, false, (error, getResponse) => {
       if (error != null) {
@@ -261,10 +291,10 @@ const getAssets = async () => {
           // Handle error.
           console.log(error);
         }
-        resolve(false);
+        resolve({user: {user: 'not ready yet'}});
       } else {
         const report = getResponse.report;
-        resolve(report);
+        console.log(report);
       }
     });
   });
