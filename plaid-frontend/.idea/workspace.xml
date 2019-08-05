@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e30ef663-5bf4-4e94-a72f-cdd5cc372cc2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../plaid-backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-backend/app/controllers/plaid.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-backend/app/controllers/plaid.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plaid-backend/app/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-backend/app/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/App/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/App/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/utility.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/utility.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/plaid/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/plaid/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/plaid/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/plaid/reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/plaid/saga.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/plaid/saga.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -185,13 +177,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="1" />
-          <entry key="js" value="6262" />
+          <entry key="js" value="6596" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="JavaScript" value="6262" />
+          <entry key="JavaScript" value="6596" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -222,11 +214,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/App/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="65" column="6" lean-forward="true" selection-start-line="65" selection-start-column="6" selection-end-line="65" selection-end-column="6" />
+            <state relative-caret-position="218">
+              <caret line="83" column="57" selection-start-line="83" selection-start-column="57" selection-end-line="83" selection-end-column="57" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -243,11 +235,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/redux/plaid/saga.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1161">
-              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="445">
+              <caret line="79" column="32" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="32" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
                 <element signature="n#!!block;n#getAccountInfo#0" />
@@ -268,8 +260,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/plaid/reducer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="115" column="8" lean-forward="true" selection-start-line="115" selection-start-column="8" selection-end-line="115" selection-end-column="8" />
+            <state relative-caret-position="202">
+              <caret line="122" column="29" selection-start-line="122" selection-start-column="8" selection-end-line="122" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -277,8 +269,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/plaid/actions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
+            <state relative-caret-position="378">
+              <caret line="42" column="90" selection-start-line="42" selection-start-column="61" selection-end-line="42" selection-end-column="90" />
             </state>
           </provider>
         </entry>
@@ -303,7 +295,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>access_token</find>
       <find>error_mess</find>
       <find>account informatio</find>
       <find>master</find>
@@ -314,7 +305,6 @@
       <find>set</find>
       <find>t</find>
       <find>getPlaidAccessToken</find>
-      <find>failed</find>
       <find>cancel</find>
       <find>getitem</find>
       <find>reconnect</find>
@@ -332,7 +322,9 @@
       <find>remove</find>
       <find>assetReportToken</find>
       <find>getaccess</find>
+      <find>failed</find>
       <find>getaccountinfo</find>
+      <find>stateAssetReportToken</find>
     </findStrings>
     <replaceStrings>
       <replace>plaidActions</replace>
@@ -392,11 +384,11 @@
         <option value="$PROJECT_DIR$/src/customApp/containers/Balances/index.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/redux/plaid/actions.js" />
-        <option value="$PROJECT_DIR$/src/redux/plaid/reducer.js" />
-        <option value="$PROJECT_DIR$/src/redux/plaid/saga.js" />
-        <option value="$PROJECT_DIR$/src/containers/App/index.js" />
         <option value="$PROJECT_DIR$/src/redux/constants.js" />
         <option value="$PROJECT_DIR$/src/redux/api/index.js" />
+        <option value="$PROJECT_DIR$/src/redux/plaid/reducer.js" />
+        <option value="$PROJECT_DIR$/src/containers/App/index.js" />
+        <option value="$PROJECT_DIR$/src/redux/plaid/saga.js" />
       </list>
     </option>
   </component>
@@ -608,7 +600,7 @@
       <workItem from="1564681923562" duration="44000" />
       <workItem from="1564689729441" duration="10233000" />
       <workItem from="1564726951812" duration="620000" />
-      <workItem from="1565021476039" duration="9614000" />
+      <workItem from="1565021476039" duration="11775000" />
     </task>
     <task id="LOCAL-00001" summary="CM Admin">
       <created>1561059064380</created>
@@ -747,7 +739,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="301795000" />
+    <option name="totallyTimeSpent" value="303956000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1077,20 +1069,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/plaid/actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/plaid/reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="115" column="8" lean-forward="true" selection-start-line="115" selection-start-column="8" selection-end-line="115" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/api/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1098,14 +1076,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/plaid/saga.js">
+    <entry file="file://$PROJECT_DIR$/src/redux/plaid/actions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1161">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="n#!!block;n#getAccountInfo#0" />
-          </folding>
+        <state relative-caret-position="378">
+          <caret line="42" column="90" selection-start-line="42" selection-start-column="61" selection-end-line="42" selection-end-column="90" />
         </state>
       </provider>
     </entry>
@@ -1116,12 +1090,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/plaid/reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="122" column="29" selection-start-line="122" selection-start-column="8" selection-end-line="122" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/App/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="65" column="6" lean-forward="true" selection-start-line="65" selection-start-column="6" selection-end-line="65" selection-end-column="6" />
+        <state relative-caret-position="218">
+          <caret line="83" column="57" selection-start-line="83" selection-start-column="57" selection-end-line="83" selection-end-column="57" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/plaid/saga.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="79" column="32" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="n#!!block;n#getAccountInfo#0" />
           </folding>
         </state>
       </provider>

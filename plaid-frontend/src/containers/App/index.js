@@ -70,8 +70,7 @@ class App extends Component {
       this.props.getPlaidAssetReportToken({accessToken, publicToken: this.props.plaidPublicToken});
       
     } else if (this.props.plaidAssetReportToken !== nextProps.plaidAssetReportToken) {
-      // after getting access token, set 10 seconds timeout waiting for plaid retrieving data,
-      // and then get account info
+      // after getting asset report token, get account info
       this.props.getAccountInfo1({accessToken, assetReportToken});
       notification('info', 'Connected Successfully!');
       this.setState({isAppLoading: false});
@@ -81,6 +80,9 @@ class App extends Component {
       console.log('getting asset report token ...', accessToken);
       this.props.getPlaidAssetReportToken({accessToken, publicToken: this.props.plaidPublicToken});
       
+		} else if (this.props.stateAssetReportToken === 0) {
+    	// failed to get asset report token (& update item)
+      this.props.getPlaidAssetReportToken({accessToken, publicToken: this.props.plaidPublicToken});
 		}
 	}
 	
@@ -125,6 +127,7 @@ const mapStateToProps = state => {
     plaidAccessToken: state.Plaid.plaidAccessToken,
     plaidPublicToken: state.Plaid.plaidPublicToken,
     plaidAssetReportToken: state.Plaid.plaidAssetReportToken,
+    stateAssetReportToken: state.Plaid.stateAssetReportToken,
     accountList: state.Plaid.accountList,
 		transactionList: state.Plaid.transactionList
 	};
