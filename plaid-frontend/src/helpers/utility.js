@@ -3,6 +3,7 @@ const cookies = new Cookies();
 
 export function clearToken() {
   cookies.remove('accessToken', { path: '/' });
+  cookies.remove('assetReportToken', { path: '/' });
   localStorage.removeItem('id_token');
 }
 

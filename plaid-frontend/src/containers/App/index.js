@@ -15,7 +15,7 @@ const cookies = new Cookies();
 const { logout } = authAction;
 const { toggleAll } = appActions;
 const { switchActivation } = themeActions;
-const { getPlaidAccessToken, getPlaidPublicToken, getAccountInfo, getAccountInfo1 } = plaidActions;
+const { getPlaidAccessToken, getPlaidPublicToken, getPlaidAssetReportToken, getAccountInfo, getAccountInfo1 } = plaidActions;
 
 class App extends Component {
 	constructor(props) {
@@ -28,18 +28,24 @@ class App extends Component {
 	}
 	
 	componentDidMount() {
+    // this.props.getPlaidAccessToken('public-production-b64226f9-5203-4e9d-881a-8e18014accbc');
+    // this.props.getPlaidAssetReportToken({
+    //   accessToken: 'access-production-52931c57-34d9-4bf6-a4b9-1843149af43d',
+    // 	publicToken: 'public-production-b64226f9-5203-4e9d-881a-8e18014accbc',
+    // });
+    // return;
+    
     // let now = new Date();
     // now.setDate(now.getDate() + 180);
-    // cookies.set('accessToken', 'access-production-2fb94219-f660-48b5-bd6e-ec0c326a72cd', {path: '/', expires: now});
+    // cookies.set('accessToken', 'access-production-84f9d723-46b9-4696-9502-3745618ba70c', {path: '/', expires: now});
     // cookies.set('assetReportToken', 'assets-production-839a606d-82db-4116-bd3b-7cd808dfba19', {path: '/', expires: now});
-    
+
     const accessToken = cookies.get('accessToken');
     const assetReportToken = cookies.get('assetReportToken');
-    if (!accessToken) {
+    if (!accessToken || !assetReportToken) {
       console.log('getting token...');
     	this.props.getPlaidPublicToken();
     } else {
-    	console.log('access token exists', accessToken);
       this.props.getAccountInfo1({accessToken, assetReportToken});
       notification('info', 'Connected Successfully!');
       this.setState({isAppLoading: false});
@@ -49,7 +55,7 @@ class App extends Component {
 	componentWillReceiveProps(nextProps) {
     const accessToken = cookies.get('accessToken');
     const assetReportToken = cookies.get('assetReportToken');
-    if (nextProps.plaidPublicToken && this.props.plaidPublicToken !== nextProps.plaidPublicToken) {
+    if (nextProps.plaidPublicToken && this.props.plaidPublicToken !== nextProps.plaidPublicToken && !this.props.plaidAccessToken) {
     	// right after getting public token, get access token
       this.props.getPlaidAccessToken(nextProps.plaidPublicToken);
       
@@ -57,31 +63,25 @@ class App extends Component {
       // user cancelled plaid authenticating
       clearTimeout(this.timer);
       this.props.getPlaidPublicToken();
-  
-    } else if (this.props.plaidAccessToken !== nextProps.plaidAccessToken) {
-    	// after getting access token, set 10 seconds timeout waiting for plaid retrieving data,
-			// and then get account info
-			this.props.getAccountInfo1({accessToken, assetReportToken});
-			notification('info', 'Connected Successfully!');
-			this.setState({isAppLoading: false});
-			
-    } else if (!nextProps.transactionList && !nextProps.isLoading && this.state.isAppLoading) {
-      // not prepared yet
-      console.log('set 10 seconds timeout, waiting for plaid to be prepared');
-      if (this.timer) {
-        clearTimeout(this.timer);
-      }
-      this.timer = setTimeout(() => {
-      	this.interval += 5000;
-        this.props.getAccountInfo(accessToken);
-      }, this.interval);
       
-    } else if ((this.props.accountList !== nextProps.accountList || this.props.transactionList !== nextProps.transactionList) && nextProps.transactionList) {
-			// finally, app loading finishes here
-			console.log('account info loading finished');
-			this.setState({isAppLoading: false});
-			notification('info', 'Connected Successfully!');
-    }
+    } else if (this.props.plaidAccessToken !== nextProps.plaidAccessToken) {
+    	// after getting access token, get asset report token
+      console.log('getting asset report token ...', accessToken);
+      this.props.getPlaidAssetReportToken({accessToken, publicToken: this.props.plaidPublicToken});
+      
+    } else if (this.props.plaidAssetReportToken !== nextProps.plaidAssetReportToken) {
+      // after getting access token, set 10 seconds timeout waiting for plaid retrieving data,
+      // and then get account info
+      this.props.getAccountInfo1({accessToken, assetReportToken});
+      notification('info', 'Connected Successfully!');
+      this.setState({isAppLoading: false});
+      
+		} else if (this.props.publicToken && accessToken && !assetReportToken) {
+    	// if previous request to get asset token was failed, here again...
+      console.log('getting asset report token ...', accessToken);
+      this.props.getPlaidAssetReportToken({accessToken, publicToken: this.props.plaidPublicToken});
+      
+		}
 	}
 	
 	render() {
@@ -124,6 +124,7 @@ const mapStateToProps = state => {
     isAuthenticatingCancelled: state.Plaid.isAuthenticatingCancelled,
     plaidAccessToken: state.Plaid.plaidAccessToken,
     plaidPublicToken: state.Plaid.plaidPublicToken,
+    plaidAssetReportToken: state.Plaid.plaidAssetReportToken,
     accountList: state.Plaid.accountList,
 		transactionList: state.Plaid.transactionList
 	};
@@ -136,6 +137,7 @@ const appConect = connect(
 		switchActivation,
     getPlaidAccessToken,
     getPlaidPublicToken,
+		getPlaidAssetReportToken,
     getAccountInfo,
     getAccountInfo1
 	}

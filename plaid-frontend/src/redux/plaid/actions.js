@@ -18,6 +18,9 @@ const plaidActions = {
   GET_ACCOUNT_INFO_SUCCESS: 'GET_ACCOUNT_INFO_SUCCESS',
   GET_ACCOUNT_INFO_FAILED: 'GET_ACCOUNT_INFO_FAILED',
   GET_ACCOUNT_INFO1: 'GET_ACCOUNT_INFO1',
+  GET_ASSET_REPORT_TOKEN: 'GET_ASSET_REPORT_TOKEN',
+  GET_ASSET_REPORT_TOKEN_SUCCESS: 'GET_ASSET_REPORT_TOKEN_SUCCESS',
+  GET_ASSET_REPORT_TOKEN_FAILED: 'GET_ASSET_REPORT_TOKEN_FAILED',
   
   getAccountList: data => ({type: plaidActions.GET_ACCOUNT_LIST, data}),
   getAccountListSuccess: data => ({type: plaidActions.GET_ACCOUNT_LIST_SUCCESS, data}),
@@ -34,7 +37,10 @@ const plaidActions = {
   getPlaidPublicTokenFailed: () => ({type: plaidActions.GET_PUBLIC_TOKEN_FAILED}),
   getPlaidAccessToken: data => ({type: plaidActions.GET_ACCESS_TOKEN, data}),
   getPlaidAccessTokenSuccess: data => ({type: plaidActions.GET_ACCESS_TOKEN_SUCCESS, data}),
-  getPlaidAccessTokenFailed: () => ({type: plaidActions.GET_ACCESS_TOKEN_FAILED})
+  getPlaidAccessTokenFailed: () => ({type: plaidActions.GET_ACCESS_TOKEN_FAILED}),
+  getPlaidAssetReportToken: data => ({type: plaidActions.GET_ASSET_REPORT_TOKEN, data}),
+  getPlaidAssetReportTokenSuccess: data => ({type: plaidActions.GET_ASSET_REPORT_TOKEN_SUCCESS, data}),
+  getPlaidAssetReportTokenFailed: () => ({type: plaidActions.GET_ASSET_REPORT_TOKEN_FAILED}),
 };
 
 export default plaidActions;

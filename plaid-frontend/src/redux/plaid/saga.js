@@ -24,6 +24,7 @@ export function* getPublicToken() {
         window.plaidHandler.open();
       },
       onExit: function(err, metadata) {
+        console.log(err);
         if (err != null) {
           notification('error', err.error_message);
         } else {
@@ -34,6 +35,7 @@ export function* getPublicToken() {
     });
   });
   if (publicToken) {
+    console.log(publicToken);
     yield put(actions.getPlaidPublicTokenSuccess(publicToken));
   } else {
     yield put(actions.getPlaidPublicTokenFailed());
@@ -41,17 +43,68 @@ export function* getPublicToken() {
 }
 
 export function* getAccessToken(data) {
+  console.log('getAccessToken pre: ', data);
   let res = yield call(postApi, {url: 'plaid/getPlaidAccessToken', data: data});
+  console.log('getAccessToken', res);
   if (res && res.status) {
     let now = new Date();
     now.setDate(now.getDate() + 180);
     cookies.set('accessToken', res.data.access_token, {path: '/', expires: now});
-    cookies.set('assetReportToken', res.data.asset_report_token, {path: '/', expires: now});
     yield put(actions.getPlaidAccessTokenSuccess(res.data));
   } else {
     yield put(actions.getPlaidAccessTokenFailed());
   }
 }
+
+export function* getAssetReportToken(data) {
+  console.log('getAssetReportToken pre: ', data);
+  let res = yield call(postApi, {url: 'plaid/getPlaidAssetReportToken', data: {data: data.data.accessToken}});
+  console.log('getAssetReportToken: ', res);
+  if (res && res.status) {
+    let now = new Date();
+    now.setDate(now.getDate() + 180);
+    cookies.set('assetReportToken', res.data.assetReportToken, {path: '/', expires: now});
+    yield put(actions.getPlaidAssetReportTokenSuccess(res.data));
+  } else if (res.updateItem) {
+    console.log('update item...');
+    let updateResult = yield new Promise((resolve) => {
+      window.plaidHandler = window.Plaid.create({
+        env: 'production',
+        clientName: 'Plaid Quickstart',
+        product: ["transactions", "auth", "assets"], // assets
+        key: plaidPublicKey,
+        countryCodes: ['US', 'CA'],
+        token: data.publicToken,
+        onSuccess: function (public_token, metadata) {
+          resolve(public_token);
+        },
+        onExit: function (err, metadata) {
+          // The user exited the Link flow.
+          if (err != null) {
+            console.log(err);
+          }
+          resolve(false);
+        },
+        onLoad: () => {
+          window.plaidHandler.open();
+        }
+      });
+    });
+    console.log('after update item...');
+    console.log(updateResult);
+    
+    if (updateResult) {
+      yield put(actions.getPlaidPublicTokenSuccess(updateResult));
+      console.log('update item success');
+    } else {
+      console.log('update item failed');
+    }
+    yield put(actions.getPlaidAssetReportTokenFailed());
+  } else {
+    yield put(actions.getPlaidAssetReportTokenFailed());
+  }
+}
+
 
 export function* getAccountInfo(data) {
   let res = yield call(postApi, {url: 'plaid/getAccountInfo', data: data});
@@ -94,6 +147,7 @@ export default function* rootSaga() {
   yield all([
     yield takeEvery(actions.GET_PUBLIC_TOKEN, getPublicToken),
     yield takeEvery(actions.GET_ACCESS_TOKEN, getAccessToken),
+    yield takeEvery(actions.GET_ASSET_REPORT_TOKEN, getAssetReportToken),
     yield takeEvery(actions.GET_ACCOUNT_INFO, getAccountInfo),
     yield takeEvery(actions.GET_ACCOUNT_INFO1, getAccountInfo1),
     yield takeEvery(actions.GET_ACCOUNT_LIST, getAccountList),
