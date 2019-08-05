@@ -66,6 +66,7 @@ export function* getAssetReportToken(data) {
     cookies.set('assetReportToken', res.data.assetReportToken, {path: '/', expires: now});
     yield put(actions.getPlaidAssetReportTokenSuccess(res.data));
   } else if (res.updateItem) {
+    // if the user changed credentials, updating item is required
     console.log('update item...');
     let updateResult = yield new Promise((resolve) => {
       window.plaidHandler = window.Plaid.create({

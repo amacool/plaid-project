@@ -10,6 +10,7 @@ const initState = {
   isLoading: false,
   isAuthenticatingCancelled: false,
   isAuthenticating: false,
+  stateAssetReportToken: null,
   pageNum: null,
   itemsPerPage: null,
   totalPage: null
@@ -112,12 +113,14 @@ export default function plaidReducer(state = initState, { type, ...action }) {
       return {
         ...state,
         isAuthenticating: false,
-        plaidAssetReportToken: action.data
+        plaidAssetReportToken: action.data,
+        stateAssetReportToken: 1
       };
     case actions.GET_ASSET_REPORT_TOKEN_FAILED:
       return {
         ...state,
-        isAuthenticating: false
+        isAuthenticating: false,
+        stateAssetReportToken: 0
       };
       
     case actions.GET_PUBLIC_TOKEN:
