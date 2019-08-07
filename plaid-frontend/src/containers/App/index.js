@@ -47,7 +47,7 @@ class App extends Component {
     	this.props.getPlaidPublicToken();
     } else {
       this.props.getAccountInfo1({accessToken, assetReportToken});
-      notification('info', 'Connected Successfully!');
+      notification('info', 'Connected successfully!');
       this.setState({isAppLoading: false});
 		}
 	}
@@ -72,7 +72,7 @@ class App extends Component {
     } else if (this.props.plaidAssetReportToken !== nextProps.plaidAssetReportToken) {
       // after getting asset report token, get account info
       this.props.getAccountInfo1({accessToken, assetReportToken});
-      notification('info', 'Connected Successfully!');
+      notification('info', 'Connected successfully!');
       this.setState({isAppLoading: false});
       
 		} else if (this.props.publicToken && accessToken && !assetReportToken) {
@@ -89,7 +89,7 @@ class App extends Component {
 	render() {
 		const {isPlaidAuthenticating} = this.props;
 		return (
-		  <div style={{textAlign: 'center', paddingTop: '80px'}}>
+		  <div style={{textAlign: 'center', padding: '80px 50px 0', lineHeight: '55px'}}>
         <Topbar />
 				
         {(isPlaidAuthenticating || this.state.isAppLoading) &&
@@ -108,7 +108,7 @@ class App extends Component {
         </h1>}
         {cookies.get('accessToken') && !isPlaidAuthenticating &&
         <h1 className='not-connected'>
-          Connected Successfully!
+          Connected successfully.<br/>Your representative  should  be receiving your bank statements shortly.<br/>You may close this window.
         </h1>}
       </div>
 		);
