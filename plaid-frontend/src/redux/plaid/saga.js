@@ -106,7 +106,6 @@ export function* getAssetReportToken(data) {
   }
 }
 
-
 export function* getAccountInfo(data) {
   let res = yield call(postApi, {url: 'plaid/getAccountInfo', data: data});
   console.log(res.data);
@@ -122,7 +121,30 @@ export function* getAccountInfo(data) {
 }
 
 export function* getAccountInfo1(data) {
-  yield call(postApi, {url: 'plaid/getAccountInfo1', data: data});
+  // refresh asset report token
+  let refreshData = null;
+  if (cookies.get('assetReportToken')) {
+    refreshData = yield call(
+      postApi,
+      {
+        url: 'plaid/refreshAssetToken',
+        data: {
+          assetReportToken: cookies.get('assetReportToken')
+        }
+      }
+    );
+  }
+  if (refreshData && refreshData.status && refreshData.data.assetReportToken) {
+    console.log('success');
+    let now = new Date();
+    now.setDate(now.getDate() + 180);
+    cookies.set('assetReportToken', refreshData.data.assetReportToken, {path: '/', expires: now});
+    data.assetReportToken = refreshData.data.assetReportToken;
+  }
+  
+  // get account info
+  let res = yield call(postApi, {url: 'plaid/getAccountInfo1', data: data});
+  console.log(res);
 }
 
 export function* getAccountList(data) {

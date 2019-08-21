@@ -5,7 +5,8 @@ import {
   getTransactions,
   getAccountInfo,
   getAccountInfo1,
-  getAssetReportToken
+  getAssetReportToken,
+  refreshAssetToken
 } from "../controllers/plaid";
 
 module.exports = function(app) {
@@ -14,6 +15,7 @@ module.exports = function(app) {
 
   app.post('/plaid/getPlaidAccessToken', getAccessToken);
   app.post('/plaid/getPlaidAssetReportToken', getAssetReportToken);
+  app.post('/plaid/refreshAssetToken', refreshAssetToken);
   app.post('/plaid/getAccounts', getAccounts);
   app.post('/plaid/getTransactions', getTransactions);
   app.post('/plaid/getAccountInfo', getAccountInfo);
