@@ -28,13 +28,6 @@ class App extends Component {
 	}
 	
 	componentDidMount() {
-    // this.props.getPlaidAccessToken('public-production-b64226f9-5203-4e9d-881a-8e18014accbc');
-    // this.props.getPlaidAssetReportToken({
-    //   accessToken: 'access-production-52931c57-34d9-4bf6-a4b9-1843149af43d',
-    // 	publicToken: 'public-production-b64226f9-5203-4e9d-881a-8e18014accbc',
-    // });
-    // return;
-    
     // let now = new Date();
     // now.setDate(now.getDate() + 180);
     // cookies.set('accessToken', 'access-production-84f9d723-46b9-4696-9502-3745618ba70c', {path: '/', expires: now});

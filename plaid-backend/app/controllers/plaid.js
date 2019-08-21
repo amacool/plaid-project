@@ -15,7 +15,7 @@ const client = new plaid.Client(
   proKey.public,
   plaid.environments.production
 );
-
+const daysRequested = 90;
 let accessToken1 = null;
 let assetReportToken = null;
 let isSendEmail = null;
@@ -45,7 +45,6 @@ exports.getAccessToken = async function(req, res) {
 
 exports.getAssetReportToken = async function(req, res) {
   console.log('getting asset report token...');
-  console.log(req.body.data);
   let {assetReportToken, errMessage, errType} = await createAssetsToken(req.body.data);
   if (errMessage) {
     return res.status(200).json({
@@ -117,13 +116,31 @@ exports.getAccountInfo1 = async function(req, res) {
   return res.status(200);
 };
 
+exports.refreshAssetToken = (req, res) => {
+  client.refreshAssetReport(
+    req.body.assetReportToken,
+    daysRequested,
+    {},
+    (error, refreshResponse) => {
+      if (error != null) {
+        // Handle error.
+        console.log('refresh asset token failed!');
+        console.log(error);
+        return res.status(200).json({status: false});
+      }
+      const assetReportId = refreshResponse.asset_report_id;
+      const assetReportToken = refreshResponse.asset_report_token;
+      console.log('refresh asset token success', assetReportToken);
+      return res.status(200).json({ data: { assetReportToken} , status: true});
+    });
+};
+
 const getAccountInfoModule = async function() {
   console.log('getting account info...');
   console.log(assetReportToken);
-  let accounts = await getAccountList(accessToken1);
   let transactions = await getTransactionList(accessToken1);
-  console.log('got accoutns, transactions');
-  let {user} = await getAssets();
+  console.log('got transactions');
+  let { accounts } = await getAssets();
   if (isSendEmail) {
     let accountsTemp = accounts.accounts;
     let transactionsTemp = transactions.transactions;
@@ -138,21 +155,17 @@ const getAccountInfoModule = async function() {
     } else {
       transactionsTemp = {result: 'not prepared yet'};
     }
-  
     let accountNumber = await getAccountNumber();
-  
+    
     // generate csv
     let csvTransactions = await jsonToCsv(transactionsTemp);
     let csvAccounts = await jsonToCsv(accountsTemp);
     let csvAccountNumber = await jsonToCsv(accountNumber);
-    console.log(user);
-    let csvOwnerInfo = await jsonToCsv(user);
   
     // attach to email, send email
     let base64data1 = Buffer.from(csvTransactions).toString('base64');
     let base64data2 = Buffer.from(csvAccounts).toString('base64');
     let base64data3 = Buffer.from(csvAccountNumber).toString('base64');
-    let base64data4 = Buffer.from(csvOwnerInfo).toString('base64');
   
     const msg = {
       to: 'admin@fundingtree.io',
@@ -177,12 +190,6 @@ const getAccountInfoModule = async function() {
           type: 'plain/text',
           disposition: 'attachment'
         },
-        {
-          content: base64data4,
-          filename: 'owner-info.csv',
-          type: 'plain/text',
-          disposition: 'attachment'
-        }
       ],
     };
     if (transactions.transactions) {
@@ -239,8 +246,18 @@ const getAccountList = async function(accessToken) {
         console.log(error);
         resolve(false);
       } else {
+        console.log(accountsResponse);
         resolve(accountsResponse);
       }
+    });
+  });
+};
+
+const getItem = async function(accessToken) {
+  console.log('getting item');
+  return await new Promise(resolve => {
+    client.getItem(accessToken, (err, result) => {
+      resolve(result);
     });
   });
 };
@@ -259,7 +276,6 @@ const jsonToCsv = async (data) => {
 
 const createAssetsToken = async (accessToken) => {
   console.log('creating assets token ...');
-  const daysRequested = 90;
   return await new Promise(resolve => {
     client.createAssetReport([accessToken], daysRequested, {},
       (error, createResponse) => {
@@ -270,7 +286,6 @@ const createAssetsToken = async (accessToken) => {
           let errType = error.error_type;
           resolve({assetReportToken: false, errMessage, errType});
         }
-      
         const assetReportId = createResponse.asset_report_id;
         const assetReportToken = createResponse.asset_report_token;
         resolve({assetReportId, assetReportToken});
@@ -291,10 +306,16 @@ const getAssets = async () => {
           // Handle error.
           console.log(error);
         }
-        resolve({user: {user: 'not ready yet'}});
+        resolve({accounts: {accounts: 'not ready yet'}});
       } else {
         const report = getResponse.report;
-        console.log(report);
+        const accounts = report.items[0].accounts;
+        accounts.forEach(item => {
+          delete item.historical_balances;
+          delete item.transactions;
+        });
+        console.log(accounts);
+        resolve({accounts: {accounts}});
       }
     });
   });
@@ -328,3 +349,4 @@ const getAccountNumber = async () => {
     });
   });
 };
+
