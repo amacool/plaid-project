@@ -306,7 +306,7 @@ const getAssets = async () => {
           // Handle error.
           console.log(error);
         }
-        resolve({accounts: {accounts: 'not ready yet'}});
+        resolve({accounts: {accounts: false}});
       } else {
         const report = getResponse.report;
         const accounts = report.items[0].accounts;
