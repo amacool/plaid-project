@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e30ef663-5bf4-4e94-a72f-cdd5cc372cc2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../plaid-backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plaid-backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-backend/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -287,20 +287,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/redux/plaid/actions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1134">
+            <state relative-caret-position="594">
               <caret line="42" column="90" selection-start-line="42" selection-start-column="61" selection-end-line="42" selection-end-column="90" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/constants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="1" column="52" selection-start-line="1" selection-start-column="52" selection-end-line="1" selection-end-column="52" />
+            <state relative-caret-position="81">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -622,7 +622,7 @@
       <workItem from="1566836688682" duration="615000" />
       <workItem from="1566889651575" duration="758000" />
       <workItem from="1566974907656" duration="48000" />
-      <workItem from="1567025033659" duration="16000" />
+      <workItem from="1567025033659" duration="129000" />
     </task>
     <task id="LOCAL-00001" summary="CM Admin">
       <created>1561059064380</created>
@@ -761,7 +761,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="327225000" />
+    <option name="totallyTimeSpent" value="327338000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1132,17 +1132,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/plaid/actions.js">
+    <entry file="file://$PROJECT_DIR$/src/redux/constants.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="42" column="90" selection-start-line="42" selection-start-column="61" selection-end-line="42" selection-end-column="90" />
+        <state relative-caret-position="81">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/constants.js">
+    <entry file="file://$PROJECT_DIR$/src/redux/plaid/actions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" column="52" selection-start-line="1" selection-start-column="52" selection-end-line="1" selection-end-column="52" />
+        <state relative-caret-position="594">
+          <caret line="42" column="90" selection-start-line="42" selection-start-column="61" selection-end-line="42" selection-end-column="90" />
         </state>
       </provider>
     </entry>

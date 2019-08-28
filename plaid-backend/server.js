@@ -40,9 +40,9 @@ app.use(function (err, req, res, next) {
 
 
 // Certificate
-const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.theleadfeed.ai/privkey.pem', 'utf8');
-const certificate = fs.readFileSync('/etc/letsencrypt/live/api.theleadfeed.ai/cert.pem', 'utf8');
-const ca = fs.readFileSync('/etc/letsencrypt/live/api.theleadfeed.ai/chain.pem', 'utf8');
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.fundingtree.io/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/api.fundingtree.io/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/api.fundingtree.io/chain.pem', 'utf8');
 
 const credentials = {
   key: privateKey,
