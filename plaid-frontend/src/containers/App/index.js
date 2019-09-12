@@ -28,11 +28,6 @@ class App extends Component {
 	}
 	
 	componentDidMount() {
-    // let now = new Date();
-    // now.setDate(now.getDate() + 180);
-    // cookies.set('accessToken', 'access-production-84f9d723-46b9-4696-9502-3745618ba70c', {path: '/', expires: now});
-    // cookies.set('assetReportToken', 'assets-production-839a606d-82db-4116-bd3b-7cd808dfba19', {path: '/', expires: now});
-
     const accessToken = cookies.get('accessToken');
     const assetReportToken = cookies.get('assetReportToken');
     if (!accessToken || !assetReportToken) {
