@@ -48,15 +48,6 @@ const PublicRoutes = ({history, isLoggedIn}) => (
         path="/load"
         component={App}
       />
-      {/*<Route*/}
-        {/*exact*/}
-        {/*path="/"*/}
-        {/*component={({history}) => {history.push('/dashboard');return null;}}*/}
-      {/*/>*/}
-      {/*<Route*/}
-        {/*path="/dashboard"*/}
-        {/*component={App}*/}
-      {/*/>*/}
     </div>
   </BrowserRouter>
 );
