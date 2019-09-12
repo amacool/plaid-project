@@ -76,7 +76,7 @@ class TopbarUser extends Component {
           }}
           onClick={this.handleVisibleChange}
         >
-          <div className="userImgWrapper" style={{backgroundColor: '#95163b'}}>
+          <div className="userImgWrapper" style={{backgroundColor: '#0083ff'}}>
           
           </div>
         </IconButtons>
