@@ -124,11 +124,10 @@ exports.refreshAssetToken = (req, res) => {
     (error, refreshResponse) => {
       if (error != null) {
         // Handle error.
-        console.log('refresh asset token failed!');
+        console.log('============ refresh asset token failed! =============');
         console.log(error);
         return res.status(200).json({status: false});
       }
-      const assetReportId = refreshResponse.asset_report_id;
       const assetReportToken = refreshResponse.asset_report_token;
       console.log('refresh asset token success', assetReportToken);
       return res.status(200).json({ data: { assetReportToken} , status: true});
@@ -137,7 +136,6 @@ exports.refreshAssetToken = (req, res) => {
 
 const getAccountInfoModule = async function() {
   console.log('getting account info...');
-  console.log(assetReportToken);
   let transactions = await getTransactionList(accessToken1);
   console.log('got transactions');
   let { accounts } = await getAssets();
@@ -246,7 +244,6 @@ const getAccountList = async function(accessToken) {
         console.log(error);
         resolve(false);
       } else {
-        console.log(accountsResponse);
         resolve(accountsResponse);
       }
     });
@@ -283,12 +280,13 @@ const createAssetsToken = async (accessToken) => {
           // Handle error.
           console.log(error);
           let errMessage = error.error_message;
-          let errType = error.error_type;
+          let errType = error.error_code;
           resolve({assetReportToken: false, errMessage, errType});
+        } else {
+          const assetReportId = createResponse.asset_report_id;
+          const assetReportToken = createResponse.asset_report_token;
+          resolve({assetReportId, assetReportToken});
         }
-        const assetReportId = createResponse.asset_report_id;
-        const assetReportToken = createResponse.asset_report_token;
-        resolve({assetReportId, assetReportToken});
       });
   });
 };
@@ -314,7 +312,6 @@ const getAssets = async () => {
           delete item.historical_balances;
           delete item.transactions;
         });
-        console.log(accounts);
         resolve({accounts: {accounts}});
       }
     });
@@ -324,28 +321,36 @@ const getAssets = async () => {
 const getAccountNumber = async () => {
   return await new Promise(resolve => {
     client.getAuth(accessToken1, {}, (err, results) => {
+      console.log("============== auth info ============");
+      console.log(results);
       if (err || !results) {
         console.log(err);
-        resolve(false);
+        if (err.error_code === 'ITEM_LOGIN_REQUIRED') {
+          console.log('=============== login requried ==============');
+          resolve({'WARNING': 'You have to reconnect to your account to get this information.'});
+        } else {
+          resolve({'Error': 'Unexpected Error'});
+        }
+      } else {
+        let accountNumbers = {};
+        if (results.numbers.ach.length > 0) {
+          // Handle ACH numbers (US accounts)
+          accountNumbers.achNumbers = results.numbers.ach;
+        }
+        if (results.numbers.eft.length > 0) {
+          // Handle EFT numbers (Canadian accounts)
+          accountNumbers.eftNumbers = results.numbers.eft;
+        }
+        if (results.numbers.international.length > 0) {
+          // Handle International numbers (Standard International accounts)
+          accountNumbers.internationalNumbers = results.numbers.international;
+        }
+        if (results.numbers.bacs.length > 0) {
+          // Handle BACS numbers (British accounts)
+          accountNumbers.bacsNumbers = results.numbers.bacs;
+        }
+        resolve(accountNumbers);
       }
-      let accountNumbers = {};
-      if (results.numbers.ach.length > 0) {
-        // Handle ACH numbers (US accounts)
-        accountNumbers.achNumbers = results.numbers.ach;
-      }
-      if (results.numbers.eft.length > 0) {
-        // Handle EFT numbers (Canadian accounts)
-        accountNumbers.eftNumbers = results.numbers.eft;
-      }
-      if (results.numbers.international.length > 0) {
-        // Handle International numbers (Standard International accounts)
-        accountNumbers.internationalNumbers = results.numbers.international;
-      }
-      if (results.numbers.bacs.length > 0) {
-        // Handle BACS numbers (British accounts)
-        accountNumbers.bacsNumbers = results.numbers.bacs;
-      }
-      resolve(accountNumbers);
     });
   });
 };
