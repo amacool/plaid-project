@@ -28,7 +28,7 @@ const IconButtons = styled(IconButton)`
 `;
 
 const TopbarComponents = styled.div`
-  background: #f82462;
+  background: #0250CB;
   width: 100%;
   display: flex;
   ul {
