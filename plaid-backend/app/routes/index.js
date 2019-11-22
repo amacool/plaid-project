@@ -8,6 +8,10 @@ import {
   getAssetReportToken,
   refreshAssetToken
 } from "../controllers/plaid";
+import {
+  setupPayment,
+  executePayment
+} from "../controllers/paypal";
 
 module.exports = function(app) {
   app.post('/auth/login', login);
@@ -20,4 +24,7 @@ module.exports = function(app) {
   app.post('/plaid/getTransactions', getTransactions);
   app.post('/plaid/getAccountInfo', getAccountInfo);
   app.post('/plaid/getAccountInfo1', getAccountInfo1);
+
+  app.post('/paypal/setupPayment', setupPayment);
+  app.post('/paypal/executePayment', executePayment);
 };

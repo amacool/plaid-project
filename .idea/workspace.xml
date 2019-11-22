@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7413bc8b-0a0c-42fd-8841-1efa88d5b26e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plaid-backend/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plaid-backend/app/controllers/paypal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plaid-frontend/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plaid-frontend/src/redux/paypal/actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plaid-frontend/src/redux/paypal/reducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plaid-frontend/src/redux/paypal/saga.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plaid-backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/plaid-backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plaid-backend/app/controllers/plaid.js" beforeDir="false" afterPath="$PROJECT_DIR$/plaid-backend/app/controllers/plaid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plaid-backend/app/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/plaid-backend/app/routes/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plaid-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/plaid-frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plaid-frontend/src/containers/App/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/plaid-frontend/src/containers/App/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,34 +28,48 @@
     <session id="-40492958">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="10" />
-          <entry key="json" value="1" />
+          <entry key="css" value="1" />
+          <entry key="env" value="1" />
+          <entry key="example" value="3" />
+          <entry key="html" value="1" />
+          <entry key="js" value="23" />
+          <entry key="json" value="4" />
           <entry key="ts" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JSON" value="1" />
-          <entry key="JavaScript" value="10" />
+          <entry key="CSS" value="1" />
+          <entry key="HTML" value="1" />
+          <entry key="JSON" value="4" />
+          <entry key="JavaScript" value="23" />
+          <entry key="PLAIN_TEXT" value="4" />
           <entry key="TypeScript" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="191" />
+          <entry key="env" value="27" />
+          <entry key="example" value="7" />
+          <entry key="html" value="3" />
+          <entry key="js" value="1152" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="191" />
+          <entry key="HTML" value="3" />
+          <entry key="JavaScript" value="1152" />
+          <entry key="PLAIN_TEXT" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -59,105 +81,96 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plaid-frontend/.env.example">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plaid-frontend/src/containers/App/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+                <element signature="n#!!block;n#componentWillReceiveProps#0;n#App#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/plaid-backend/app/controllers/plaid.js">
+        <entry file="file://$PROJECT_DIR$/plaid-frontend/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="115" column="7" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
+            <state relative-caret-position="1051">
+              <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plaid-backend/.env.example">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plaid-backend/app/controllers/paypal.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="54" selection-start-line="54" selection-end-line="54" />
               <folding>
-                <element signature="e#8661#9611#0" />
+                <element signature="e#177#747#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plaid-backend/node_modules/plaid/index.d.ts">
+        <entry file="file://$PROJECT_DIR$/plaid-backend/app/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="685" column="36" selection-start-line="685" selection-start-column="36" selection-end-line="685" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plaid-frontend/src/redux/plaid/saga.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+            <state relative-caret-position="630">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#51#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plaid-frontend/src/customApp/containers/Transactions/index.js">
+        <entry file="file://$PROJECT_DIR$/plaid-frontend/src/redux/paypal/saga.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-27">
-              <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+            <state relative-caret-position="882">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#57#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plaid-frontend/public/index.html">
+        <entry file="file://$PROJECT_DIR$/plaid-frontend/src/redux/paypal/actions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="29" column="49" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
-              <folding>
-                <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="231">
+              <caret line="11" column="16" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plaid-frontend/src/customApp/containers/Balances/index.js">
+        <entry file="file://$PROJECT_DIR$/plaid-frontend/src/redux/paypal/reducer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plaid-frontend/src/customApp/containers/Accounts/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="36" column="10" lean-forward="true" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plaid-backend/app/controllers/users.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plaid-frontend/src/redux/user/saga.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="484">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
             </state>
           </provider>
         </entry>
@@ -169,7 +182,17 @@
       <find>cookie</find>
       <find>createasset</find>
       <find>assetReportToken</find>
+      <find>update</find>
+      <find>/load</find>
+      <find>paypalSetting</find>
+      <find>p</find>
+      <find>plaid</find>
+      <find>Plaid</find>
     </findStrings>
+    <replaceStrings>
+      <replace>paypal</replace>
+      <replace>Paypal</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -179,6 +202,16 @@
       <list>
         <option value="$PROJECT_DIR$/plaid-frontend/src/redux/constants.js" />
         <option value="$PROJECT_DIR$/plaid-backend/app/controllers/plaid.js" />
+        <option value="$PROJECT_DIR$/plaid-frontend/public/index.html" />
+        <option value="$PROJECT_DIR$/plaid-frontend/src/customApp/containers/Balances/index.js" />
+        <option value="$PROJECT_DIR$/plaid-frontend/.env" />
+        <option value="$PROJECT_DIR$/plaid-backend/.env.example" />
+        <option value="$PROJECT_DIR$/plaid-backend/app/routes/index.js" />
+        <option value="$PROJECT_DIR$/plaid-backend/app/controllers/paypal.js" />
+        <option value="$PROJECT_DIR$/plaid-frontend/src/redux/paypal/saga.js" />
+        <option value="$PROJECT_DIR$/plaid-frontend/src/redux/paypal/reducer.js" />
+        <option value="$PROJECT_DIR$/plaid-frontend/src/redux/paypal/actions.js" />
+        <option value="$PROJECT_DIR$/plaid-frontend/src/containers/App/index.js" />
       </list>
     </option>
   </component>
@@ -226,108 +259,7 @@
             <path>
               <item name="plaid-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="plaid-master" type="462c0819:PsiDirectoryNode" />
-              <item name="plaid-backend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plaid-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plaid-master" type="462c0819:PsiDirectoryNode" />
-              <item name="plaid-backend" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plaid-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plaid-master" type="462c0819:PsiDirectoryNode" />
-              <item name="plaid-backend" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plaid-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plaid-master" type="462c0819:PsiDirectoryNode" />
               <item name="plaid-frontend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plaid-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plaid-master" type="462c0819:PsiDirectoryNode" />
-              <item name="plaid-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plaid-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plaid-master" type="462c0819:PsiDirectoryNode" />
-              <item name="plaid-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plaid-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plaid-master" type="462c0819:PsiDirectoryNode" />
-              <item name="plaid-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plaid-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plaid-master" type="462c0819:PsiDirectoryNode" />
-              <item name="plaid-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="App" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plaid-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plaid-master" type="462c0819:PsiDirectoryNode" />
-              <item name="plaid-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="customApp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plaid-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plaid-master" type="462c0819:PsiDirectoryNode" />
-              <item name="plaid-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="customApp" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plaid-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plaid-master" type="462c0819:PsiDirectoryNode" />
-              <item name="plaid-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="customApp" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="Accounts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plaid-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plaid-master" type="462c0819:PsiDirectoryNode" />
-              <item name="plaid-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="customApp" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="Balances" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plaid-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plaid-master" type="462c0819:PsiDirectoryNode" />
-              <item name="plaid-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="customApp" type="462c0819:PsiDirectoryNode" />
-              <item name="redux" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plaid-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plaid-master" type="462c0819:PsiDirectoryNode" />
-              <item name="plaid-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="redux" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="plaid-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="plaid-master" type="462c0819:PsiDirectoryNode" />
-              <item name="plaid-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="redux" type="462c0819:PsiDirectoryNode" />
-              <item name="plaid" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -337,10 +269,17 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/plaid-frontend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2018.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\web\Plaid-new\plaid-master\plaid-frontend\src\redux" />
+      <recent name="E:\web\Plaid-new\plaid-master\plaid-backend" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -367,11 +306,13 @@
       <workItem from="1564064292196" duration="403000" />
       <workItem from="1565737944756" duration="1117000" />
       <workItem from="1566294605125" duration="8108000" />
+      <workItem from="1573116593049" duration="913000" />
+      <workItem from="1576858053182" duration="7458000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9628000" />
+    <option name="totallyTimeSpent" value="17999000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -385,10 +326,9 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19777896" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19777896" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -398,8 +338,9 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32960895" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32960895" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.2536313" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.2536313" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -408,18 +349,38 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/plaid-backend/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/plaid-frontend/src/redux/constants.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -428,46 +389,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plaid-backend/app/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plaid-frontend/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2538">
-          <caret line="94" column="26" selection-start-line="94" selection-start-column="26" selection-end-line="94" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plaid-frontend/src/redux/auth/saga.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#0#63#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plaid-backend/node_modules/@types/node/base.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="60" column="10" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plaid-backend/node_modules/plaid/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14385">
+          <caret line="685" column="36" selection-start-line="685" selection-start-column="36" selection-end-line="685" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plaid-frontend/src/redux/user/saga.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        <state relative-caret-position="1008">
+          <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/plaid-frontend/src/customApp/redux/sagas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plaid-frontend/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plaid-frontend/src/customApp/containers/Accounts/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1080">
+          <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plaid-frontend/src/index.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/plaid-frontend/src/customApp/containers/Transactions/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27">
+        <state relative-caret-position="84">
           <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plaid-frontend/src/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plaid-frontend/src/customApp/containers/Balances/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -476,40 +479,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plaid-frontend/src/redux/plaid/saga.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+        <state relative-caret-position="273">
+          <caret line="94" column="30" lean-forward="true" selection-start-line="94" selection-start-column="30" selection-end-line="94" selection-end-column="30" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plaid-frontend/public/index.html">
+    <entry file="file://$PROJECT_DIR$/plaid-frontend/src/redux/paypal/saga.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="29" column="49" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
+        <state relative-caret-position="882">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
           <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#0#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plaid-frontend/src/customApp/containers/Balances/index.js">
+    <entry file="file://$PROJECT_DIR$/plaid-frontend/src/redux/api/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="-230">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plaid-frontend/src/customApp/containers/Accounts/index.js">
+    <entry file="file://$PROJECT_DIR$/plaid-frontend/src/redux/paypal/reducer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="36" column="10" lean-forward="true" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="484">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>
@@ -522,27 +523,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plaid-backend/node_modules/plaid/index.d.ts">
+    <entry file="file://$PROJECT_DIR$/plaid-backend/app/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="685" column="36" selection-start-line="685" selection-start-column="36" selection-end-line="685" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plaid-backend/node_modules/@types/node/base.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="60" column="10" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
+        <state relative-caret-position="630">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plaid-backend/app/controllers/plaid.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="115" column="7" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
+        <state relative-caret-position="525">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plaid-frontend/.env.example">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-paypal-express-checkout/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plaid-backend/app/controllers/paypal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
           <folding>
-            <element signature="e#8661#9611#0" />
+            <element signature="e#177#747#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plaid-frontend/src/redux/paypal/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plaid-backend/.env.example">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plaid-frontend/src/containers/App/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="n#!!block;n#componentWillReceiveProps#0;n#App#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plaid-frontend/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1051">
+          <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
         </state>
       </provider>
     </entry>
