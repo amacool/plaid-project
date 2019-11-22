@@ -10,6 +10,10 @@ import {DemoWrapper} from "../../components/utility/papersheet";
 import Cookies from "universal-cookie";
 import notification from "../../components/notification";
 import Topbar from "../Topbar";
+import PaypalExpressBtn from 'react-paypal-express-checkout';
+import {getPaypalConfig} from "../../redux/paypal/saga";
+import {setupPayment} from "../../redux/paypal/saga";
+import {executePayment} from "../../redux/paypal/saga";
 
 const cookies = new Cookies();
 const { logout } = authAction;
@@ -17,14 +21,34 @@ const { toggleAll } = appActions;
 const { switchActivation } = themeActions;
 const { getPlaidAccessToken, getPlaidPublicToken, getPlaidAssetReportToken, getAccountInfo, getAccountInfo1 } = plaidActions;
 
+const styles = theme => ({
+  root: {
+    width: '100%',
+    overflowX: 'auto',
+  },
+  table: {
+    minWidth: 700,
+  }
+});
+
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isAppLoading: true
+			isAppLoading: true,
+			total: 0,
+      payStatus: false,
+			payment: {}
 		};
 		this.timer = null;
 		this.interval = 5000;
+    this.paypalMode = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_PAYPAL_MODE : process.env.REACT_APP_PAYPAL_MODE_DEV;
+    this.paypalCurrency = 'USD';
+    this.clientId = process.env.REACT_APP_PAYPAL_CLIENT_ID;
+    this.paypalSetting = {
+      sandbox:    process.env.NODE_ENV === 'production' ? process.env.REACT_APP_PAYPAL_SANDBOX_ID : process.env.REACT_APP_PAYPAL_SANDBOX_ID_DEV,
+      production: process.env.NODE_ENV === 'production' ? process.env.REACT_APP_PAYPAL_LIVE_ID : process.env.REACT_APP_PAYPAL_LIVE_ID_DEV,
+    }
 	}
 	
 	componentDidMount() {
@@ -38,6 +62,11 @@ class App extends Component {
       notification('info', 'Connected successfully!');
       this.setState({isAppLoading: false});
 		}
+    var tag = document.createElement('script');
+    tag.async = false;
+    tag.src = `www.paypal.com/sdk/js?client-id=${this.clientId}`;
+    document.getElementsByTagName('body').appendChild(tag);
+    this.props.getPaypalConfig();
 	}
 	
 	componentWillReceiveProps(nextProps) {
@@ -73,14 +102,28 @@ class App extends Component {
       this.props.getPlaidAssetReportToken({accessToken, publicToken: this.props.plaidPublicToken});
 		}
 	}
+
+  paypalOnSuccess = (payment) => {
+		this.props.executePayment(payment);
+	};
 	
 	render() {
 		const {isPlaidAuthenticating} = this.props;
 		return (
 		  <div style={{textAlign: 'center', padding: '80px 50px 0', lineHeight: '55px'}}>
         <Topbar />
-				
-        {(isPlaidAuthenticating || this.state.isAppLoading) &&
+
+        <PaypalExpressBtn
+					env={this.paypalMode}
+					client={this.paypalSetting}
+					onSuccess={
+						payment => this.paypalOnSuccess(payment)
+					}
+					currency={this.paypalCurrency}
+					total={this.state.total}
+				/>
+
+				{(isPlaidAuthenticating || this.state.isAppLoading) &&
         <div>
           <DemoWrapper>
             <Loader/>
@@ -130,7 +173,10 @@ const appConect = connect(
     getPlaidPublicToken,
 		getPlaidAssetReportToken,
     getAccountInfo,
-    getAccountInfo1
+    getAccountInfo1,
+    executePayment,
+    setupPayment,
+    getPaypalConfig
 	}
 )(App);
 export default appConect;
