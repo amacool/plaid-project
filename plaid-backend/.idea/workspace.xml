@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cadc1ca0-6ed7-411c-932e-d9a0bdd10ba3" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/app/controllers/plaid.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/plaid.js" afterDir="false" />
+>>>>>>> f80c721f6a03500ac8daef4972b64f151f354ad4
       <change beforePath="$PROJECT_DIR$/../plaid-frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../plaid-frontend/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -97,7 +101,11 @@
           <entry key="project.open.time.17" value="5" />
           <entry key="project.open.time.18" value="2" />
           <entry key="project.open.time.19" value="2" />
+<<<<<<< HEAD
           <entry key="project.open.time.2" value="4" />
+=======
+          <entry key="project.open.time.2" value="3" />
+>>>>>>> f80c721f6a03500ac8daef4972b64f151f354ad4
           <entry key="project.open.time.22" value="2" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.35" value="1" />
@@ -106,7 +114,11 @@
           <entry key="project.open.time.66" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
+<<<<<<< HEAD
           <entry key="project.opened" value="47" />
+=======
+          <entry key="project.opened" value="45" />
+>>>>>>> f80c721f6a03500ac8daef4972b64f151f354ad4
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -147,8 +159,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="378">
               <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+=======
+            <state relative-caret-position="-372">
+              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+>>>>>>> f80c721f6a03500ac8daef4972b64f151f354ad4
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -159,8 +176,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="294">
               <caret line="23" selection-start-line="23" selection-end-line="23" />
+=======
+            <state relative-caret-position="378">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+>>>>>>> f80c721f6a03500ac8daef4972b64f151f354ad4
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -171,8 +193,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/plaid.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="252">
               <caret line="322" column="42" selection-start-line="322" selection-start-column="41" selection-end-line="322" selection-end-column="42" />
+=======
+            <state relative-caret-position="343">
+              <caret line="323" column="59" selection-start-line="323" selection-start-column="59" selection-end-line="323" selection-end-column="59" />
+>>>>>>> f80c721f6a03500ac8daef4972b64f151f354ad4
             </state>
           </provider>
         </entry>
@@ -180,8 +207,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="294">
               <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+=======
+            <state relative-caret-position="378">
+              <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+>>>>>>> f80c721f6a03500ac8daef4972b64f151f354ad4
             </state>
           </provider>
         </entry>
@@ -238,6 +270,11 @@
       <find>console.log</find>
       <find>error_code</find>
       <find>balance</find>
+      <find>results.numbers.a</find>
+      <find>error_type</find>
+      <find>ITEM_LOGIN_REQUIRED</find>
+      <find>console.log</find>
+      <find>error_code</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -403,14 +440,22 @@
       <workItem from="1566559515902" duration="6891000" />
       <workItem from="1566814243395" duration="2428000" />
       <workItem from="1566974939530" duration="2659000" />
+<<<<<<< HEAD
       <workItem from="1568319340571" duration="4316000" />
       <workItem from="1569944435740" duration="1931000" />
       <workItem from="1569998316764" duration="768000" />
+=======
+      <workItem from="1568319340571" duration="3713000" />
+>>>>>>> f80c721f6a03500ac8daef4972b64f151f354ad4
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="239602000" />
+=======
+    <option name="totallyTimeSpent" value="236300000" />
+>>>>>>> f80c721f6a03500ac8daef4972b64f151f354ad4
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -424,7 +469,11 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
+<<<<<<< HEAD
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24382384" />
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23737916" />
+>>>>>>> f80c721f6a03500ac8daef4972b64f151f354ad4
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -437,8 +486,13 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49785176" weight="0.32960895" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.41353384" side_tool="true" visible="true" weight="0.2972067" />
       <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.5864662" visible="true" weight="0.2972067" />
+=======
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.41245973" side_tool="true" visible="true" weight="0.2972067" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.58754027" visible="true" weight="0.2972067" />
+>>>>>>> f80c721f6a03500ac8daef4972b64f151f354ad4
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -515,12 +569,21 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+>>>>>>> f80c721f6a03500ac8daef4972b64f151f354ad4
           </folding>
         </state>
       </provider>
@@ -542,6 +605,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -553,13 +617,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+=======
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-372">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+>>>>>>> f80c721f6a03500ac8daef4972b64f151f354ad4
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/plaid.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="252">
           <caret line="322" column="42" selection-start-line="322" selection-start-column="41" selection-end-line="322" selection-end-column="42" />
+=======
+        <state relative-caret-position="343">
+          <caret line="323" column="59" selection-start-line="323" selection-start-column="59" selection-end-line="323" selection-end-column="59" />
+>>>>>>> f80c721f6a03500ac8daef4972b64f151f354ad4
         </state>
       </provider>
     </entry>
